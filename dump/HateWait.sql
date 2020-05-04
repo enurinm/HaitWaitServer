@@ -26,8 +26,8 @@ CREATE TABLE `client` (
   `id` varchar(15) NOT NULL,
   `phone` int NOT NULL,
   `name` varchar(15) NOT NULL,
-  `people_num` int NOT NULL,
-  `is_member` tinyint(1) NOT NULL,
+  `peopleNum` int NOT NULL,
+  `isMember` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -131,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-04 10:11:59
+-- Dump completed on 2020-05-04 16:05:07
