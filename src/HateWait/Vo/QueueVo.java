@@ -7,6 +7,12 @@ public class QueueVo {
 	QueueVo(){
 		
 	}
+	public String column() {
+		return "sid, cid, turn";
+	}
+	public String value() {
+		return sid+", "+cid+", "+turn;
+	}
 	public String getSid() {
 		return sid;
 	}

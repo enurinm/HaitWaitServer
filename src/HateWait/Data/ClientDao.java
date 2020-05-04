@@ -14,7 +14,8 @@ public class ClientDao {
 	//client 등록
 	void insertClient(ClientVo cvo) {
 		//dbCommand 수정
-		
+		dbCommand="INSERT INTO client ("+cvo.column()+") VALUES ("+cvo.value()+");";
+		//db호출
 		db.insert(dbCommand);
 	}
 	

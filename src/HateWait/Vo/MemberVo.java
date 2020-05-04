@@ -7,6 +7,12 @@ public class MemberVo {
 	MemberVo(){
 		
 	}
+	public String column() {
+		return "id, name, phone";
+	}
+	public String value() {
+		return id+", "+name+", "+phone;
+	}
 	public String getId() {
 		return id;
 	}

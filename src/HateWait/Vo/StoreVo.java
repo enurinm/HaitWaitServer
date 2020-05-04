@@ -8,6 +8,12 @@ public class StoreVo {
 	Timestamp time;
 	int anum;
 	StoreVo(){}
+	public String column() {
+		return "id, name, info, time, anum";
+	}
+	public String value() {
+		return id+", "+name+", "+info+", "+time+", "+anum;
+	}
 	public String getId() {
 		return id;
 	}

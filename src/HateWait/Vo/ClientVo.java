@@ -9,6 +9,12 @@ public class ClientVo {
 	ClientVo(){
 		
 	}
+	public String column() {
+		return "id, phone, name, peopleNum, isMember";
+	}
+	public String value() {
+		return id+", "+phone+", "+name+", "+peopleNum+", "+isMember;
+	}
 	public String getId() {
 		return id;
 	}
