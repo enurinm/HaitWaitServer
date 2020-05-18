@@ -1,11 +1,10 @@
 package HateWait.Vo;
-import java.sql.Timestamp;
 
 public class StoreVo {
 	String id;
 	String name;
 	String info;
-	Timestamp time;
+	String time;
 	int anum;
 	StoreVo(){}
 	public String column() {
@@ -32,10 +31,10 @@ public class StoreVo {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public Timestamp getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Timestamp time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public int getAnum() {

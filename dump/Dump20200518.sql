@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `hate_wait` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `hate_wait`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hate_wait
@@ -103,7 +105,7 @@ CREATE TABLE `store` (
   `id` varchar(15) NOT NULL,
   `name` varchar(20) NOT NULL,
   `info` text,
-  `time` time DEFAULT NULL,
+  `time` text,
   `anum` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -131,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-04 16:05:07
+-- Dump completed on 2020-05-18 22:57:08
