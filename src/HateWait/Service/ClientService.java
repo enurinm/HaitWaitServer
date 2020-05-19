@@ -15,13 +15,13 @@ public class ClientService {
 		return cvo;
 	}
 
-	public void insertClient(String id, int phone, String name, int peopleNum, boolean isMember) {
+	public void insertClient(String id, String name, int phone, int peopleNum, boolean isMember) {
 		ClientVo cvo = setClientVo(id, phone, name, peopleNum, isMember);
 		System.out.println("ClientVo::::::::::::::"+cvo.toString());
 		ClientDao cd = new ClientDao();
-
-		System.out.println("connection ed service::::::::::::");
+		
 		cd.insertClient(cvo);
+		System.out.println("ClientService_insert success::::::::::::");
 		return ;
 	}
 

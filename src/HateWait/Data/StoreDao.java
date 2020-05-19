@@ -6,14 +6,16 @@ public class StoreDao {
 	HateWaitDBAccess db;
 	String dbCommand;
 
-	StoreDao() {
-		db.connect();
+	public StoreDao() {
+		dbCommand = "";
+		this.db = new HateWaitDBAccess();
 	}
 
 	// client 등록
-	void insertStore(StoreVo svo) {
+	public void insertStore(StoreVo svo) {
 		// dbCommand 수정
-		dbCommand = "INSERT INTO client (" + svo.column() + ") VALUES (" + svo.value() + ");";
+		dbCommand = "INSERT INTO store (" + svo.column() + ") VALUES (" + svo.value() + ");";
+		System.out.println("dbcommand::::::::::"+dbCommand);
 		// db호출
 		db.insert(dbCommand);
 	}

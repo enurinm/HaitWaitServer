@@ -4,14 +4,15 @@ public class QueueVo {
 	String sid;
 	String cid;
 	int turn;
-	QueueVo(){
-		
+	@Override
+	public String toString() {
+		return "QueueVo [sid=" + sid + ", cid=" + cid + ", turn=" + turn + "]";
 	}
 	public String column() {
 		return "sid, cid, turn";
 	}
 	public String value() {
-		return sid+", "+cid+", "+turn;
+		return "'"+sid+"', '"+cid+"', "+turn;
 	}
 	public String getSid() {
 		return sid;

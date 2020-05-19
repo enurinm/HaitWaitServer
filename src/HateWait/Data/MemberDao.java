@@ -6,14 +6,16 @@ public class MemberDao {
 	HateWaitDBAccess db;
 	String dbCommand;
 
-	MemberDao() {
-		db.connect();
+	public MemberDao() {
+		dbCommand = "";
+		this.db = new HateWaitDBAccess();
 	}
 
 	// Queue 등록
-	void insertMember(MemberVo mvo) {
+	public void insertMember(MemberVo mvo) {
 		// dbCommand 수정
-		dbCommand = "INSERT INTO client (" + mvo.column() + ") VALUES (" + mvo.value() + ");";
+		dbCommand = "INSERT INTO member (" + mvo.column() + ") VALUES (" + mvo.value() + ");";
+		System.out.println("dbcommand::::::::::"+dbCommand);
 		// db호출
 		db.insert(dbCommand);
 	}

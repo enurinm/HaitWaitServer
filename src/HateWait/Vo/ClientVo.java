@@ -15,7 +15,7 @@ public class ClientVo {
 		return "id, phone, name, peopleNum, isMember";
 	}
 	public String value() {
-		return id+", "+phone+", "+name+", "+peopleNum+", "+isMember;
+		return "'"+id+"', "+phone+", '"+name+"', "+peopleNum+", "+isMember;
 	}
 	public String getId() {
 		return id;

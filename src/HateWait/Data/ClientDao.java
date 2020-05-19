@@ -9,13 +9,13 @@ public class ClientDao {
 	public ClientDao() {
 		dbCommand = "";
 		this.db = new HateWaitDBAccess();
-//		db.connect();
 	}
 
 	// client 등록
 	public void insertClient(ClientVo cvo) {
 		// dbCommand 수정
 		dbCommand = "INSERT INTO client (" + cvo.column() + ") VALUES (" + cvo.value() + ");";
+		System.out.println("dbcommand::::::::::"+dbCommand);
 		// db호출
 		db.insert(dbCommand);
 	}

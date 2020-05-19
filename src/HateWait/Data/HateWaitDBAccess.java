@@ -15,12 +15,6 @@ public class HateWaitDBAccess {
 	
 	//»ý¼ºÀÚ
 	HateWaitDBAccess(){
-//		System.out.println("dbacc");
-//		this.dbInfo="jdbc:mysql://127.0.0.1:3307/hate_wait?&useSSL=false&amp;serverTimezone=UTC";
-//		this.dbID="root";
-//		this.dbPW="root";
-		System.out.println("dbinfo::::::::"+this.dbInfo);
-		System.out.println("dbid::::::::::"+this.dbID+", dbpw::::::::::"+this.dbPW);
 		connect();
 	}
 	
@@ -61,7 +55,7 @@ public class HateWaitDBAccess {
 			this.stmt.executeUpdate(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::insert error::"+e);
+			System.out.println("HateWait.Data.HateWaitDBAccess::insert error:: "+e);
 		}
 	}
 	
@@ -77,7 +71,7 @@ public class HateWaitDBAccess {
 			this.rs=this.stmt.executeQuery(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::select error::"+e);
+			System.out.println("HateWait.Data.HateWaitDBAccess::select error:: "+e);
 		}
 		return this.rs;
 	}
@@ -92,7 +86,7 @@ public class HateWaitDBAccess {
 			this.stmt.executeUpdate(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::delete error::"+e);
+			System.out.println("HateWait.Data.HateWaitDBAccess::delete error:: "+e);
 		}
 	}
 		
@@ -106,7 +100,7 @@ public class HateWaitDBAccess {
 			this.stmt.executeUpdate(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::update error::"+e);
+			System.out.println("HateWait.Data.HateWaitDBAccess::update error:: "+e);
 		}
 	}
 	
@@ -117,7 +111,7 @@ public class HateWaitDBAccess {
 			conn.close();
 		}
 		catch(Exception e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::close error::"+e);
+			System.out.println("HateWait.Data.HateWaitDBAccess::close error:: "+e);
 		}
 	}
 }

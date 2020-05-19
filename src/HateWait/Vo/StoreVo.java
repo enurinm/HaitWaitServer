@@ -6,12 +6,15 @@ public class StoreVo {
 	String info;
 	String time;
 	int anum;
-	StoreVo(){}
+	@Override
+	public String toString() {
+		return "StoreVo [id=" + id + ", name=" + name + ", info=" + info + ", time=" + time + ", anum=" + anum + "]";
+	}
 	public String column() {
 		return "id, name, info, time, anum";
 	}
 	public String value() {
-		return id+", "+name+", "+info+", "+time+", "+anum;
+		return "'"+id+"', '"+name+"', '"+info+"', '"+time+"', "+anum;
 	}
 	public String getId() {
 		return id;

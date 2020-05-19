@@ -4,14 +4,15 @@ public class MemberVo {
 	String id;
 	String name;
 	int phone;
-	MemberVo(){
-		
+	@Override
+	public String toString() {
+		return "MemberVo [id=" + id + ", name=" + name + ", phone=" + phone + "]";
 	}
 	public String column() {
 		return "id, name, phone";
 	}
 	public String value() {
-		return id+", "+name+", "+phone;
+		return "'"+id+"', '"+name+"', "+phone;
 	}
 	public String getId() {
 		return id;
