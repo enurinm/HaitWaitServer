@@ -29,14 +29,16 @@ public class ClientDao {
 	/*
 	 * client 조회 -개인 -리스트 //select
 	 */
-	ClientVo getClient(String id) {
-		ClientVo cvo = new ClientVo();
-		dbCommand = "SELECT * FROM client WHERE id="+id;
-		
+	public ClientVo getClient(String id) {
+		dbCommand = "SELECT * FROM client WHERE id='"+id+"';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		ClientVo cvo = settingUtil.setClientVo(db.select(dbCommand));
+		System.out.println("return value::::::::::"+cvo.toString());
 		return cvo;
 	}
 
 	List<ClientVo> getClientList() {
+		dbCommand = "SELECT * FROM client";
 		List<ClientVo> cvo = new ArrayList<>();
 		return cvo;
 	}

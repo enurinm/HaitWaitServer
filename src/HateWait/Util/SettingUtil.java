@@ -1,5 +1,8 @@
 package HateWait.Util;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import HateWait.Vo.ClientVo;
 import HateWait.Vo.MemberVo;
 import HateWait.Vo.QueueVo;
@@ -14,6 +17,21 @@ public class SettingUtil {
 		cvo.setName(name);
 		cvo.setPeopleNum(peopleNum);
 		cvo.setPhone(phone);
+		return cvo;
+	}
+	
+	public ClientVo setClientVo(ResultSet rs) {
+		ClientVo cvo = new ClientVo();
+		try {
+			rs.next();
+			cvo.setId(rs.getString("id"));
+			cvo.setMember(rs.getBoolean("isMember"));
+			cvo.setName(rs.getString("name"));
+			cvo.setPeopleNum(rs.getInt("peopleNum"));
+			cvo.setPhone(rs.getInt("phone"));
+		}catch (SQLException e){
+			System.out.println("HateWait.Util.SettingUtil::ResultSet setting error:: "+e);
+		}
 		return cvo;
 	}
 	

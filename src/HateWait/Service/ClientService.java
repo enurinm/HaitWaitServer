@@ -20,5 +20,10 @@ public class ClientService {
 		cd.insertClient(cvo);
 		return;
 	}
+	
+	public ClientVo getClient(String id) {
+		ClientVo cvo=cd.getClient(id);
+		return cvo;
+	}
 
 }
