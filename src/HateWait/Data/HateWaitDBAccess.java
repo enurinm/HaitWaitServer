@@ -8,24 +8,30 @@ public class HateWaitDBAccess {
 	private java.sql.Connection conn;
 	private java.sql.Statement stmt;
 	private java.sql.ResultSet rs;
-	private String dbInfo;
-	private String dbID;
-	private String dbPW;
+	private String dbInfo="jdbc:mysql://127.0.0.1:3307/hate_wait?&useSSL=false&amp;serverTimezone=UTC";
+	private String dbID="root";
+	private String dbPW="root";
+	private String jdbcDriver="com.mysql.cj.jdbc.Driver"; //com.mysql.jdbc.Driver
 	
 	//»ý¼ºÀÚ
 	HateWaitDBAccess(){
-		dbInfo="jdbc:mysql://localhost:3307/hate_wait";
-		dbID="root";
-		dbPW="root";
+//		System.out.println("dbacc");
+//		this.dbInfo="jdbc:mysql://127.0.0.1:3307/hate_wait?&useSSL=false&amp;serverTimezone=UTC";
+//		this.dbID="root";
+//		this.dbPW="root";
+//		System.out.println("dbinfo::::::::"+this.dbInfo);
+//		System.out.println("dbid::::::::::"+this.dbID+", dbpw::::::::::"+this.dbPW);
 		connect();
 	}
 	
+	/*
 	HateWaitDBAccess(String dbUrl, String dbId, String dbPw){
 		this.dbInfo=dbUrl;
 		this.dbID=dbId;
 		this.dbPW=dbPw;
 		connect();
 	}
+	*/
 	
 	
 	/*
@@ -33,12 +39,12 @@ public class HateWaitDBAccess {
 	 */
 	void connect() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(jdbcDriver);
 			this.conn=java.sql.DriverManager.getConnection(dbInfo, dbID, dbPW);
 			this.stmt=this.conn.createStatement();
 		}
 		catch(Exception e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::connection error::"+e);
+			System.out.println("HateWait.Data.HateWaitDBAccess::connection error:: "+e);
 		}
 	}
 	

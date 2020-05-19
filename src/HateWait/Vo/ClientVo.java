@@ -6,8 +6,10 @@ public class ClientVo {
 	String name;
 	int peopleNum;
 	boolean isMember;
-	ClientVo(){
-		
+	@Override
+	public String toString() {
+		return "ClientVo [id=" + id + ", phone=" + phone + ", name=" + name + ", peopleNum=" + peopleNum + ", isMember="
+				+ isMember + "]";
 	}
 	public String column() {
 		return "id, phone, name, peopleNum, isMember";
