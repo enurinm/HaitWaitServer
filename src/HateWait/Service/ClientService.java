@@ -20,6 +20,7 @@ public class ClientService {
 		System.out.println("ClientVo::::::::::::::"+cvo.toString());
 		ClientDao cd = new ClientDao();
 
+		System.out.println("connection ed service::::::::::::");
 		cd.insertClient(cvo);
 		return ;
 	}

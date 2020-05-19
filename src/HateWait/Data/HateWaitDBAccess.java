@@ -8,7 +8,7 @@ public class HateWaitDBAccess {
 	private java.sql.Connection conn;
 	private java.sql.Statement stmt;
 	private java.sql.ResultSet rs;
-	private String dbInfo="jdbc:mysql://127.0.0.1:3307/hate_wait?&useSSL=false&amp;serverTimezone=UTC";
+	private String dbInfo="jdbc:mysql://127.0.0.1:3307/hate_wait?&useSSL=false&serverTimezone=UTC";
 	private String dbID="root";
 	private String dbPW="root";
 	private String jdbcDriver="com.mysql.cj.jdbc.Driver"; //com.mysql.jdbc.Driver
@@ -19,8 +19,8 @@ public class HateWaitDBAccess {
 //		this.dbInfo="jdbc:mysql://127.0.0.1:3307/hate_wait?&useSSL=false&amp;serverTimezone=UTC";
 //		this.dbID="root";
 //		this.dbPW="root";
-//		System.out.println("dbinfo::::::::"+this.dbInfo);
-//		System.out.println("dbid::::::::::"+this.dbID+", dbpw::::::::::"+this.dbPW);
+		System.out.println("dbinfo::::::::"+this.dbInfo);
+		System.out.println("dbid::::::::::"+this.dbID+", dbpw::::::::::"+this.dbPW);
 		connect();
 	}
 	
