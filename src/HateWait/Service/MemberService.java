@@ -4,6 +4,12 @@ import HateWait.Data.MemberDao;
 import HateWait.Vo.MemberVo;
 
 public class MemberService {
+	MemberDao md;
+	
+	public MemberService(){
+		md=new MemberDao();
+	}
+	
 	public MemberVo setMemberVo(String id, String name, int phone) {
 		MemberVo mvo = new MemberVo();
 		mvo.setId(id);
@@ -15,7 +21,7 @@ public class MemberService {
 	public void insertMember(String id, String name, int phone) {
 		MemberVo mvo = setMemberVo(id, name, phone);
 		System.out.println("MemberVo::::::::::::"+mvo.toString());
-		MemberDao md=new MemberDao();
+		
 		
 		md.insertMember(mvo);
 		return ;
