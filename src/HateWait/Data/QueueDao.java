@@ -1,14 +1,17 @@
 package HateWait.Data;
 
+import HateWait.Util.SettingUtil;
 import HateWait.Vo.QueueVo;
 
 public class QueueDao {
 	HateWaitDBAccess db;
 	String dbCommand;
+	SettingUtil settingUtil;
 
 	public QueueDao() {
 		dbCommand = "";
 		this.db = new HateWaitDBAccess();
+		settingUtil = new SettingUtil();
 	}
 
 	// Queue µî·Ï

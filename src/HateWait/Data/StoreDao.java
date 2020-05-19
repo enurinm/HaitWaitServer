@@ -15,7 +15,7 @@ public class StoreDao {
 	public void insertStore(StoreVo svo) {
 		// dbCommand 수정
 		dbCommand = "INSERT INTO store (" + svo.column() + ") VALUES (" + svo.value() + ");";
-		System.out.println("dbcommand::::::::::"+dbCommand);
+		System.out.println("dbcommand::::::::::" + dbCommand);
 		// db호출
 		db.insert(dbCommand);
 	}
