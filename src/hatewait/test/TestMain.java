@@ -28,7 +28,7 @@ public class TestMain {
 //		qs.deleteQueue("s0000", "m0000");
 		
 		System.out.println("queue::::::::::::::"+qs.countQueue("s0000"));
-		System.out.println("m0000 my turn::::::::::"+qs.getClientTurn("m0000"));
+		System.out.println("Á¦ Â÷·Ê´Â¿ä :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
 		
 	}
 
