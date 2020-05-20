@@ -1,8 +1,8 @@
-package HateWait.Service;
+package hatewait.service;
 
-import HateWait.Data.StoreDao;
-import HateWait.Util.SettingUtil;
-import HateWait.Vo.StoreVo;
+import hatewait.data.StoreDao;
+import hatewait.util.SettingUtil;
+import hatewait.vo.StoreVo;
 
 public class StoreService {
 	StoreDao sd;
@@ -18,6 +18,14 @@ public class StoreService {
 		System.out.println("StoreVo:::::::::::" + svo.toString());
 
 		sd.insertStore(svo);
+		return;
+	}
+	
+	public void modifyStore(String id, String info, String time, int anum) {
+		StoreVo svo = settingUtil.setStoreVo(id, info, time, anum);
+		System.out.println("StoreVo:::::::::::" + svo.toString());
+		
+		sd.modifyStore(svo);
 		return;
 	}
 

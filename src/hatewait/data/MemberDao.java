@@ -1,6 +1,6 @@
-package HateWait.Data;
+package hatewait.data;
 
-import HateWait.Vo.MemberVo;
+import hatewait.vo.MemberVo;
 
 public class MemberDao {
 	HateWaitDBAccess db;
@@ -11,12 +11,13 @@ public class MemberDao {
 		this.db = new HateWaitDBAccess();
 	}
 
-	// Queue 등록
+	// 회원 등록
 	public void insertMember(MemberVo mvo) {
 		// dbCommand 수정
 		dbCommand = "INSERT INTO member (" + mvo.column() + ") VALUES (" + mvo.value() + ");";
 		System.out.println("dbcommand::::::::::"+dbCommand);
 		// db호출
 		db.insert(dbCommand);
+		return;
 	}
 }

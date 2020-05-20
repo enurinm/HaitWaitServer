@@ -35,7 +35,7 @@ CREATE TABLE `client` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `client`
+-- Dumping hatewait.data for table `client`
 --
 
 LOCK TABLES `client` WRITE;
@@ -59,7 +59,7 @@ CREATE TABLE `member` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `member`
+-- Dumping hatewait.data for table `member`
 --
 
 LOCK TABLES `member` WRITE;
@@ -86,7 +86,7 @@ CREATE TABLE `queue` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `queue`
+-- Dumping hatewait.data for table `queue`
 --
 
 LOCK TABLES `queue` WRITE;
@@ -112,7 +112,7 @@ CREATE TABLE `store` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `store`
+-- Dumping hatewait.data for table `store`
 --
 
 LOCK TABLES `store` WRITE;

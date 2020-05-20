@@ -1,7 +1,7 @@
-package HateWait.Data;
+package hatewait.data;
 
-import HateWait.Util.SettingUtil;
-import HateWait.Vo.QueueVo;
+import hatewait.util.SettingUtil;
+import hatewait.vo.QueueVo;
 
 public class QueueDao {
 	HateWaitDBAccess db;
@@ -21,5 +21,6 @@ public class QueueDao {
 		System.out.println("dbcommand::::::::::"+dbCommand);
 		// db»£√‚
 		db.insert(dbCommand);
+		return;
 	}
 }

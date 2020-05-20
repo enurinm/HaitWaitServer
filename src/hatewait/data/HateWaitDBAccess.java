@@ -1,4 +1,4 @@
-package HateWait.Data;
+package hatewait.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,8 +38,9 @@ public class HateWaitDBAccess {
 			this.stmt=this.conn.createStatement();
 		}
 		catch(Exception e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::connection error:: "+e);
+			System.out.println("hatewait.data.HateWaitDBAccess::connection error:: "+e);
 		}
+		return;
 	}
 	
 	
@@ -55,8 +56,9 @@ public class HateWaitDBAccess {
 			this.stmt.executeUpdate(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::insert error:: "+e);
+			System.out.println("hatewait.data.HateWaitDBAccess::insert error:: "+e);
 		}
+		return;
 	}
 	
 	
@@ -71,7 +73,7 @@ public class HateWaitDBAccess {
 			this.rs=this.stmt.executeQuery(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::select error:: "+e);
+			System.out.println("hatewait.data.HateWaitDBAccess::select error:: "+e);
 		}
 		return this.rs;
 	}
@@ -86,8 +88,9 @@ public class HateWaitDBAccess {
 			this.stmt.executeUpdate(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::delete error:: "+e);
+			System.out.println("hatewait.data.HateWaitDBAccess::delete error:: "+e);
 		}
+		return;
 	}
 		
 	
@@ -100,8 +103,9 @@ public class HateWaitDBAccess {
 			this.stmt.executeUpdate(dbCommand);
 		}
 		catch(SQLException e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::update error:: "+e);
+			System.out.println("hatewait.data.HateWaitDBAccess::update error:: "+e);
 		}
+		return;
 	}
 	
 	
@@ -111,7 +115,8 @@ public class HateWaitDBAccess {
 			conn.close();
 		}
 		catch(Exception e) {
-			System.out.println("HateWait.Data.HateWaitDBAccess::close error:: "+e);
+			System.out.println("hatewait.data.HateWaitDBAccess::close error:: "+e);
 		}
+		return;
 	}
 }

@@ -1,8 +1,8 @@
-package HateWait.Service;
+package hatewait.service;
 
-import HateWait.Data.ClientDao;
-import HateWait.Util.SettingUtil;
-import HateWait.Vo.ClientVo;
+import hatewait.data.ClientDao;
+import hatewait.util.SettingUtil;
+import hatewait.vo.ClientVo;
 
 public class ClientService {
 	ClientDao cd;

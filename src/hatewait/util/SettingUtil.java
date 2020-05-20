@@ -1,12 +1,12 @@
-package HateWait.Util;
+package hatewait.util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import HateWait.Vo.ClientVo;
-import HateWait.Vo.MemberVo;
-import HateWait.Vo.QueueVo;
-import HateWait.Vo.StoreVo;
+import hatewait.vo.ClientVo;
+import hatewait.vo.MemberVo;
+import hatewait.vo.QueueVo;
+import hatewait.vo.StoreVo;
 
 public class SettingUtil {
 	
@@ -30,7 +30,7 @@ public class SettingUtil {
 			cvo.setPeopleNum(rs.getInt("peopleNum"));
 			cvo.setPhone(rs.getInt("phone"));
 		}catch (SQLException e){
-			System.out.println("HateWait.Util.SettingUtil::ResultSet setting error:: "+e);
+			System.out.println("hatewait.util.SettingUtil::ResultSet setting error:: "+e);
 		}
 		return cvo;
 	}
@@ -56,6 +56,15 @@ public class SettingUtil {
 		StoreVo svo=new StoreVo();
 		svo.setId(id);
 		svo.setName(name);
+		svo.setInfo(info);
+		svo.setTime(time);
+		svo.setAnum(anum);
+		return svo;
+	}
+	
+	public StoreVo setStoreVo(String id, String info, String time, int anum) {
+		StoreVo svo=new StoreVo();
+		svo.setId(id);
 		svo.setInfo(info);
 		svo.setTime(time);
 		svo.setAnum(anum);

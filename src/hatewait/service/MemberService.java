@@ -1,8 +1,8 @@
-package HateWait.Service;
+package hatewait.service;
 
-import HateWait.Data.MemberDao;
-import HateWait.Util.SettingUtil;
-import HateWait.Vo.MemberVo;
+import hatewait.data.MemberDao;
+import hatewait.util.SettingUtil;
+import hatewait.vo.MemberVo;
 
 public class MemberService {
 	MemberDao md;

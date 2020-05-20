@@ -1,4 +1,4 @@
-package HateWait.Vo;
+package hatewait.vo;
 
 public class QueueVo {
 	String sid;

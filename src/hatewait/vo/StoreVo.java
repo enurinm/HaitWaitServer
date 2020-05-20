@@ -1,4 +1,4 @@
-package HateWait.Vo;
+package hatewait.vo;
 
 public class StoreVo {
 	String id;
@@ -6,6 +6,9 @@ public class StoreVo {
 	String info;
 	String time;
 	int anum;
+	public StoreVo() {
+		anum=-1;
+	}
 	@Override
 	public String toString() {
 		return "StoreVo [id=" + id + ", name=" + name + ", info=" + info + ", time=" + time + ", anum=" + anum + "]";

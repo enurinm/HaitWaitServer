@@ -1,10 +1,7 @@
-package HateWait.Data;
+package hatewait.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import HateWait.Util.SettingUtil;
-import HateWait.Vo.ClientVo;
+import hatewait.util.SettingUtil;
+import hatewait.vo.ClientVo;
 
 public class ClientDao {
 	HateWaitDBAccess db;
@@ -24,6 +21,7 @@ public class ClientDao {
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		// db»£√‚
 		db.insert(dbCommand);
+		return;
 	}
 
 	/*
@@ -37,10 +35,10 @@ public class ClientDao {
 		return cvo;
 	}
 
-	List<ClientVo> getClientList() {
-		dbCommand = "SELECT * FROM client";
-		List<ClientVo> cvo = new ArrayList<>();
-		return cvo;
-	}
+//	List<ClientVo> getClientList() {
+//		dbCommand = "SELECT * FROM client";
+//		List<ClientVo> cvo = new ArrayList<>();
+//		return cvo;
+//	}
 
 }

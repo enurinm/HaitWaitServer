@@ -1,8 +1,8 @@
-package HateWait.Service;
+package hatewait.service;
 
-import HateWait.Data.QueueDao;
-import HateWait.Util.SettingUtil;
-import HateWait.Vo.QueueVo;
+import hatewait.data.QueueDao;
+import hatewait.util.SettingUtil;
+import hatewait.vo.QueueVo;
 
 public class QueueService {
 	QueueDao qd;
