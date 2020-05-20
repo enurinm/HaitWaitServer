@@ -1,5 +1,8 @@
 package hatewait.data;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import hatewait.util.SettingUtil;
 import hatewait.vo.QueueVo;
 
@@ -31,5 +34,31 @@ public class QueueDao {
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.delete(dbCommand);
 		return;
+	}
+	
+	// 대기열 조회 함수들
+	// 클라이언트 id로 대기열 조회
+	public QueueVo getQueue(String cid) {
+		dbCommand = "SELECT * FROM queue WHERE cid='"+cid+"';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		QueueVo qvo=settingUtil.setQueueVo(db.select(dbCommand));
+		return qvo;
+	}
+	
+	//가게 id로 대기열 전체 조회 > list
+	
+	//가게 id로 대기열 수 세기 > count
+	public int countQueue(String sid) {
+		int count=0;
+		dbCommand = "SELECT COUNT(*) as count FROM queue WHERE sid='"+sid+"';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		ResultSet rs=db.select(dbCommand);
+		try {
+			rs.next();
+			count=rs.getInt("count");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 }

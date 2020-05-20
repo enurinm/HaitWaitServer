@@ -52,6 +52,19 @@ public class SettingUtil {
 		return qvo;
 	}
 	
+	public QueueVo setQueueVo(ResultSet rs) {
+		QueueVo qvo=new QueueVo();
+		try {
+			rs.next();
+			qvo.setCid(rs.getString("cid"));
+			qvo.setSid(rs.getString("sid"));
+			qvo.setTurn(rs.getInt("turn"));
+		}catch (SQLException e){
+			System.out.println("hatewait.util.SettingUtil::ResultSet setting error:: "+e);
+		}
+		return qvo;
+	}
+	
 	public StoreVo setStoreVo(String id, String name, String info, String time, int anum) {
 		StoreVo svo=new StoreVo();
 		svo.setId(id);

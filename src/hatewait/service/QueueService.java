@@ -28,4 +28,15 @@ public class QueueService {
 		qd.deleteQueue(qvo);
 		return;
 	}
+	
+	public int getClientTurn(String cid) {
+		int turn=0;
+		turn=qd.getQueue(cid).getTurn();
+		return turn;
+	}
+	
+	public int countQueue(String sid) {
+		int count=qd.countQueue(sid);
+		return count;
+	}
 }
