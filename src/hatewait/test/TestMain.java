@@ -4,7 +4,6 @@ import hatewait.service.ClientService;
 import hatewait.service.MemberService;
 import hatewait.service.QueueService;
 import hatewait.service.StoreService;
-import hatewait.vo.ClientVo;
 
 public class TestMain {
 
@@ -21,10 +20,12 @@ public class TestMain {
 //		ss.insertStore("s0000", "맛있는 가게", "맛있습니다.", "평일 09:00-17:00", 7);
 //		qs.insertQueue("s0000", "m0000", 1);
 		
-		ClientVo cvo= cs.getClient("m0000");
-		System.out.println("select end at main::::::::::::"+cvo.toString());
+//		ClientVo cvo= cs.getClient("m0000");
+//		System.out.println("select end at main::::::::::::"+cvo.toString());
 		
-		ss.modifyStore("s0000", "아주맛있다", null, 5);
+//		ss.modifyStore("s0000", "아주맛있다", null, 5);
+		
+		qs.deleteQueue("s0000", "m0000");
 
 	}
 

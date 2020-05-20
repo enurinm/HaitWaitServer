@@ -20,4 +20,12 @@ public class QueueService {
 		qd.insertQueue(qvo);
 		return;
 	}
+	
+	public void deleteQueue(String sid, String cid) {
+		QueueVo qvo = settingUtil.setQueueVo(sid, cid, -1);
+		System.out.println("QueueVo:::::::::::" + qvo.toString());
+		
+		qd.deleteQueue(qvo);
+		return;
+	}
 }
