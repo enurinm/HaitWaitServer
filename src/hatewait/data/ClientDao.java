@@ -17,7 +17,7 @@ public class ClientDao {
 		dbCommand = "";
 		this.db = new HateWaitDBAccess();
 		settingVoUtil = new SettingVoUtil();
-		makeCommandUtil=new MakeCommandUtil();
+		makeCommandUtil = new MakeCommandUtil();
 	}
 
 	// client 등록
@@ -34,42 +34,41 @@ public class ClientDao {
 	 * client 조회 -개인 //select
 	 */
 	public ClientVo getClient(String id) {
-		dbCommand = "SELECT * FROM client WHERE id='"+id+"';";
+		dbCommand = "SELECT * FROM client WHERE id='" + id + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		ClientVo cvo = settingVoUtil.setClientVo(db.select(dbCommand));
-		System.out.println("return value::::::::::"+cvo.toString());
+		System.out.println("return value::::::::::" + cvo.toString());
 		return cvo;
 	}
 
 	public int countNonMemverClient() {
-		int count=0;
+		int count = 0;
 		dbCommand = "SELECT COUNT(*) as count FROM client WHERE isMember=false;";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		ResultSet rs=db.select(dbCommand);
+		ResultSet rs = db.select(dbCommand);
 		try {
 			rs.next();
-			count=rs.getInt("count");
+			count = rs.getInt("count");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return count;
 	}
-	
-	
+
 	public boolean isExistClient(String id) {
-		boolean isEC=false;
-		dbCommand = "SELECT EXISTS (SELECT * FROM client WHERE id='"+id+"') as success;";
+		boolean isEC = false;
+		dbCommand = "SELECT EXISTS (SELECT * FROM client WHERE id='" + id + "') as success;";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		ResultSet rs=db.select(dbCommand);
+		ResultSet rs = db.select(dbCommand);
 		try {
 			rs.next();
-			isEC=rs.getBoolean("success");
+			isEC = rs.getBoolean("success");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return isEC;
 	}
-	
+
 	public void modifyClientPeopleNum(ClientVo cvo) {
 		String set = "";
 		set = makeCommandUtil.setString(cvo.getPeopleNum(), set, "peopleNum");

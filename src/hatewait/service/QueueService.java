@@ -35,11 +35,11 @@ public class QueueService {
 		return countQueue(sid)+"명 중 "+turn+"번 째";
 	}
 	
-//	int getClientTurn(String cid) {
-//		int turn=0;
-//		turn=qd.getQueue(cid).getTurn();
-//		return turn;
-//	}
+	int getClientTurn(String cid) {
+		int turn=0;
+		turn=qd.getQueue(cid).getTurn();
+		return turn;
+	}
 	
 	public int countQueue(String sid) {
 		int count=qd.countQueue(sid);

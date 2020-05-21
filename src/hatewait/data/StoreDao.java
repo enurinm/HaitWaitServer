@@ -45,8 +45,8 @@ public class StoreDao {
 
 	// 가게 id로 대기열 전체 조회 > list
 	public List<QueueInfoVo> getClientListFromQueue(String sid) {
-		dbCommand = "SELECT id, phone, name, peopleNum, turn FROM client, queue "
-				+ "WHERE queue.sid='" + sid	+ "' and queue.cid=client.id;";
+		dbCommand = "SELECT id, phone, name, peopleNum, turn FROM client, queue " + "WHERE queue.sid='" + sid
+				+ "' and queue.cid=client.id;";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		ResultSet rs = db.select(dbCommand);
 		List<QueueInfoVo> qivo = settingVoUtil.setQueueInfoVoList(rs);

@@ -36,35 +36,35 @@ public class StoreService {
 		return;
 	}
 
-	public void addQueue(String sid, String cid, int peopleNum) { //대기열에 손님 추가-회원전용
+	public void addQueue(String sid, String cid, int peopleNum) { // 대기열에 손님 추가-회원전용
 		// 클라이언트가 없을 경우 클라이언트 등록(회원 전용)
 		cs.insertClient(cid, null, -1, peopleNum, true);
-		
+
 		// 큐등록
 		// 현재 큐에 turn이 몇번째까지 있는지 turn의 최대값 구하기 -> 몇명인지 구해서 +1함
 		// max(turn)+1 한 값 입력
-		int turn=qs.countQueue(sid)+1;
+		int turn = qs.countQueue(sid) + 1;
 		qs.insertQueue(sid, cid, turn);
 		return;
 	}
-	
-	public void addQueue(String sid, String name, int phone, int peopleNum) { //대기열에 손님 추가-비회원전용
+
+	public void addQueue(String sid, String name, int phone, int peopleNum) { // 대기열에 손님 추가-비회원전용
 		// 클라이언트가 없을 경우 클라이언트 등록(회원 전용)
 		// 비회원일 경우 n0000으로 아이디 생성하게 하는 것 추가
-		String cid="n"+String.format("%04d", cs.countNonMemverClient());
+		String cid = "n" + String.format("%04d", cs.countNonMemverClient());
 		cs.insertClient(cid, name, phone, peopleNum, false);
-		
+
 		// 큐등록
 		// 현재 큐에 turn이 몇번째까지 있는지 turn의 최대값 구하기 -> 몇명인지 구해서 +1함
 		// max(turn)+1 한 값 입력
-		int turn=qs.countQueue(sid)+1;
+		int turn = qs.countQueue(sid) + 1;
 		qs.insertQueue(sid, cid, turn);
 		return;
 	}
-	
-	public List<QueueInfoVo> getStoreQueueList(String sid){
-		List<QueueInfoVo> qivo=sd.getClientListFromQueue(sid);
-		System.out.println("::::::::"+qivo.toString());
+
+	public List<QueueInfoVo> getStoreQueueList(String sid) {
+		List<QueueInfoVo> qivo = sd.getClientListFromQueue(sid);
+		System.out.println("::::::::" + qivo.toString());
 		return qivo;
 	}
 

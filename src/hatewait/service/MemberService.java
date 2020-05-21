@@ -8,19 +8,19 @@ public class MemberService {
 	MemberDao md;
 	SettingVoUtil settingVoUtil;
 	ClientService cs;
-	
-	public MemberService(){
-		md=new MemberDao();
+
+	public MemberService() {
+		md = new MemberDao();
 		settingVoUtil = new SettingVoUtil();
-		cs=new ClientService();
+		cs = new ClientService();
 	}
-	
+
 	public void insertMember(String id, String name, int phone) {
 		MemberVo mvo = settingVoUtil.setMemberVo(id, name, phone);
-		System.out.println("MemberVo::::::::::::"+mvo.toString());
+		System.out.println("MemberVo::::::::::::" + mvo.toString());
 		md.insertMember(mvo);
 		cs.insertClient(id, name, phone, -1, true);
-		return ;
+		return;
 	}
 
 }
