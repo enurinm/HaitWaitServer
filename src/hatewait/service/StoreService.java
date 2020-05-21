@@ -1,7 +1,10 @@
 package hatewait.service;
 
+import java.util.List;
+
 import hatewait.data.StoreDao;
 import hatewait.util.SettingVoUtil;
+import hatewait.vo.QueueInfoVo;
 import hatewait.vo.StoreVo;
 
 public class StoreService {
@@ -57,6 +60,12 @@ public class StoreService {
 		int turn=qs.countQueue(sid)+1;
 		qs.insertQueue(sid, cid, turn);
 		return;
+	}
+	
+	public List<QueueInfoVo> getStoreQueueList(String sid){
+		List<QueueInfoVo> qivo=sd.getClientListFromQueue(sid);
+		System.out.println("::::::::"+qivo.toString());
+		return qivo;
 	}
 
 }

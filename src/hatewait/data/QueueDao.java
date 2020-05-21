@@ -45,8 +45,6 @@ public class QueueDao {
 		return qvo;
 	}
 	
-	//가게 id로 대기열 전체 조회 > list
-	
 	//가게 id로 대기열 수 세기 > count
 	public int countQueue(String sid) {
 		int count=0;

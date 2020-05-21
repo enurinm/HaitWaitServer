@@ -2,9 +2,12 @@ package hatewait.util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import hatewait.vo.ClientVo;
 import hatewait.vo.MemberVo;
+import hatewait.vo.QueueInfoVo;
 import hatewait.vo.QueueVo;
 import hatewait.vo.StoreVo;
 
@@ -29,6 +32,8 @@ public class SettingVoUtil {
 			cvo.setName(rs.getString("name"));
 			cvo.setPeopleNum(rs.getInt("peopleNum"));
 			cvo.setPhone(rs.getInt("phone"));
+			if(rs !=null) rs.close();
+			else {}
 		}catch (SQLException e){
 			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: "+e);
 		}
@@ -59,6 +64,8 @@ public class SettingVoUtil {
 			qvo.setCid(rs.getString("cid"));
 			qvo.setSid(rs.getString("sid"));
 			qvo.setTurn(rs.getInt("turn"));
+			if(rs !=null) rs.close();
+			else {}
 		}catch (SQLException e){
 			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: "+e);
 		}
@@ -82,6 +89,26 @@ public class SettingVoUtil {
 		svo.setTime(time);
 		svo.setAnum(anum);
 		return svo;
+	}
+	
+	public List<QueueInfoVo> setQueueInfoVoList(ResultSet rs){
+		List<QueueInfoVo> qivo = new ArrayList<>();
+		try {
+			while(rs.next()) {
+				QueueInfoVo q=new QueueInfoVo();
+				q.setId(rs.getString("id"));
+				q.setPhone(rs.getInt("phone"));
+				q.setName(rs.getString("name"));
+				q.setPeopleNum(rs.getInt("peopleNum"));
+				q.setTurn(rs.getInt("turn"));
+				qivo.add(q);
+			}
+			if(rs !=null) rs.close();
+			else {}
+		}catch (SQLException e){
+			System.out.println("hatewait.util.SettingVoUtil::ResultSet List setting error:: "+e);
+		}
+		return qivo;
 	}
 
 }

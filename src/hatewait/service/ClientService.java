@@ -34,5 +34,5 @@ public class ClientService {
 	public int countNonMemverClient() {
 		return cd.countNonMemverClient();
 	}
-
+	
 }

@@ -31,7 +31,7 @@ public class ClientDao {
 	}
 
 	/*
-	 * client 조회 -개인 -리스트 //select
+	 * client 조회 -개인 //select
 	 */
 	public ClientVo getClient(String id) {
 		dbCommand = "SELECT * FROM client WHERE id='"+id+"';";
@@ -41,12 +41,6 @@ public class ClientDao {
 		return cvo;
 	}
 
-//	List<ClientVo> getClientList() {
-//		dbCommand = "SELECT * FROM client";
-//		List<ClientVo> cvo = new ArrayList<>();
-//		return cvo;
-//	}
-	
 	public int countNonMemverClient() {
 		int count=0;
 		dbCommand = "SELECT COUNT(*) as count FROM client WHERE isMember=false;";

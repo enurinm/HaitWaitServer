@@ -35,6 +35,8 @@ public class TestMain {
 //		ss.addQueue("s0000", "m0000", 20);
 //		ss.addQueue("s0000", "ȫ�浿", 1098765432, 5);
 		
+		ss.getStoreQueueList("s0000");
+		
 	}
 
 }
