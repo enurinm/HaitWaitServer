@@ -47,6 +47,21 @@ public class ClientDao {
 //		return cvo;
 //	}
 	
+	public int countNonMemverClient() {
+		int count=0;
+		dbCommand = "SELECT COUNT(*) as count FROM client WHERE isMember=false;";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		ResultSet rs=db.select(dbCommand);
+		try {
+			rs.next();
+			count=rs.getInt("count");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	
 	public boolean isExistClient(String id) {
 		boolean isEC=false;
 		dbCommand = "SELECT EXISTS (SELECT * FROM client WHERE id='"+id+"') as success;";

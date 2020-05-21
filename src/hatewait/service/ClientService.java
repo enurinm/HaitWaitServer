@@ -30,5 +30,9 @@ public class ClientService {
 		ClientVo cvo=cd.getClient(id);
 		return cvo;
 	}
+	
+	public int countNonMemverClient() {
+		return cd.countNonMemverClient();
+	}
 
 }

@@ -25,12 +25,15 @@ public class TestMain {
 		
 //		ss.modifyStore("s0000", "¾ÆÁÖ¸ÀÀÖ´Ù", null, 4);
 		
-//		qs.deleteQueue("s0000", "m0000");
+//		qs.deleteQueue("s0000", "n0001");
 		
 //		System.out.println("queue::::::::::::::"+qs.countQueue("s0000"));
 //		System.out.println("Á¦ Â÷·Ê´Â¿ä :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
 		
-		cs.insertClient("m0000", null, -1, 1, true);
+//		cs.insertClient("m0000", null, -1, 1, true);
+		
+//		ss.addQueue("s0000", "m0000", 20);
+//		ss.addQueue("s0000", "È«±æµ¿", 1098765432, 5);
 		
 	}
 
