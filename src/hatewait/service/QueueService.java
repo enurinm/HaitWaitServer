@@ -1,20 +1,20 @@
 package hatewait.service;
 
 import hatewait.data.QueueDao;
-import hatewait.util.SettingUtil;
+import hatewait.util.SettingVoUtil;
 import hatewait.vo.QueueVo;
 
 public class QueueService {
 	QueueDao qd;
-	SettingUtil settingUtil;
+	SettingVoUtil settingVoUtil;
 
 	public QueueService() {
 		qd = new QueueDao();
-		settingUtil = new SettingUtil();
+		settingVoUtil = new SettingVoUtil();
 	}
 
 	public void insertQueue(String sid, String cid, int turn) {
-		QueueVo qvo = settingUtil.setQueueVo(sid, cid, turn);
+		QueueVo qvo = settingVoUtil.setQueueVo(sid, cid, turn);
 		System.out.println("QueueVo:::::::::::" + qvo.toString());
 
 		qd.insertQueue(qvo);
@@ -22,7 +22,7 @@ public class QueueService {
 	}
 	
 	public void deleteQueue(String sid, String cid) {
-		QueueVo qvo = settingUtil.setQueueVo(sid, cid, -1);
+		QueueVo qvo = settingVoUtil.setQueueVo(sid, cid, -1);
 		System.out.println("QueueVo:::::::::::" + qvo.toString());
 		
 		qd.deleteQueue(qvo);

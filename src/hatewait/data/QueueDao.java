@@ -3,18 +3,18 @@ package hatewait.data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import hatewait.util.SettingUtil;
+import hatewait.util.SettingVoUtil;
 import hatewait.vo.QueueVo;
 
 public class QueueDao {
 	HateWaitDBAccess db;
 	String dbCommand;
-	SettingUtil settingUtil;
+	SettingVoUtil settingVoUtil;
 
 	public QueueDao() {
 		dbCommand = "";
 		this.db = new HateWaitDBAccess();
-		settingUtil = new SettingUtil();
+		settingVoUtil = new SettingVoUtil();
 	}
 
 	// 대기열 등록
@@ -41,7 +41,7 @@ public class QueueDao {
 	public QueueVo getQueue(String cid) {
 		dbCommand = "SELECT * FROM queue WHERE cid='"+cid+"';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		QueueVo qvo=settingUtil.setQueueVo(db.select(dbCommand));
+		QueueVo qvo=settingVoUtil.setQueueVo(db.select(dbCommand));
 		return qvo;
 	}
 	

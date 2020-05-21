@@ -8,7 +8,7 @@ import hatewait.vo.MemberVo;
 import hatewait.vo.QueueVo;
 import hatewait.vo.StoreVo;
 
-public class SettingUtil {
+public class SettingVoUtil {
 	
 	public ClientVo setClientVo(String id, int phone, String name, int peopleNum, boolean isMember) {
 		ClientVo cvo = new ClientVo();
@@ -30,7 +30,7 @@ public class SettingUtil {
 			cvo.setPeopleNum(rs.getInt("peopleNum"));
 			cvo.setPhone(rs.getInt("phone"));
 		}catch (SQLException e){
-			System.out.println("hatewait.util.SettingUtil::ResultSet setting error:: "+e);
+			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: "+e);
 		}
 		return cvo;
 	}
@@ -60,7 +60,7 @@ public class SettingUtil {
 			qvo.setSid(rs.getString("sid"));
 			qvo.setTurn(rs.getInt("turn"));
 		}catch (SQLException e){
-			System.out.println("hatewait.util.SettingUtil::ResultSet setting error:: "+e);
+			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: "+e);
 		}
 		return qvo;
 	}

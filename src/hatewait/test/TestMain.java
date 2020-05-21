@@ -23,12 +23,14 @@ public class TestMain {
 //		ClientVo cvo= cs.getClient("m0000");
 //		System.out.println("select end at main::::::::::::"+cvo.toString());
 		
-//		ss.modifyStore("s0000", "아주맛있다", null, 5);
+//		ss.modifyStore("s0000", "아주맛있다", null, 4);
 		
 //		qs.deleteQueue("s0000", "m0000");
 		
-		System.out.println("queue::::::::::::::"+qs.countQueue("s0000"));
-		System.out.println("제 차례는요 :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
+//		System.out.println("queue::::::::::::::"+qs.countQueue("s0000"));
+//		System.out.println("제 차례는요 :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
+		
+		cs.insertClient("m0000", null, -1, 1, true);
 		
 	}
 

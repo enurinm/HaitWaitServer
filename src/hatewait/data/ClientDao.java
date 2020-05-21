@@ -1,17 +1,23 @@
 package hatewait.data;
 
-import hatewait.util.SettingUtil;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import hatewait.util.MakeCommandUtil;
+import hatewait.util.SettingVoUtil;
 import hatewait.vo.ClientVo;
 
 public class ClientDao {
 	HateWaitDBAccess db;
 	String dbCommand;
-	SettingUtil settingUtil;
+	SettingVoUtil settingVoUtil;
+	MakeCommandUtil makeCommandUtil;
 
 	public ClientDao() {
 		dbCommand = "";
 		this.db = new HateWaitDBAccess();
-		settingUtil = new SettingUtil();
+		settingVoUtil = new SettingVoUtil();
+		makeCommandUtil=new MakeCommandUtil();
 	}
 
 	// client µî·Ï
@@ -30,7 +36,7 @@ public class ClientDao {
 	public ClientVo getClient(String id) {
 		dbCommand = "SELECT * FROM client WHERE id='"+id+"';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		ClientVo cvo = settingUtil.setClientVo(db.select(dbCommand));
+		ClientVo cvo = settingVoUtil.setClientVo(db.select(dbCommand));
 		System.out.println("return value::::::::::"+cvo.toString());
 		return cvo;
 	}
@@ -40,5 +46,28 @@ public class ClientDao {
 //		List<ClientVo> cvo = new ArrayList<>();
 //		return cvo;
 //	}
+	
+	public boolean isExistClient(String id) {
+		boolean isEC=false;
+		dbCommand = "SELECT EXISTS (SELECT * FROM client WHERE id='"+id+"') as success;";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		ResultSet rs=db.select(dbCommand);
+		try {
+			rs.next();
+			isEC=rs.getBoolean("success");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return isEC;
+	}
+	
+	public void modifyClientPeopleNum(ClientVo cvo) {
+		String set = "";
+		set = makeCommandUtil.setString(cvo.getPeopleNum(), set, "peopleNum");
+		dbCommand = "UPDATE client set " + set + " where id='" + cvo.getId() + "';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		db.update(dbCommand);
+		return;
+	}
 
 }
