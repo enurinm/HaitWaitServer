@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `hate_wait` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `hate_wait`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hate_wait
@@ -35,7 +33,7 @@ CREATE TABLE `client` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping hatewait.data for table `client`
+-- Dumping data for table `client`
 --
 
 LOCK TABLES `client` WRITE;
@@ -54,12 +52,13 @@ CREATE TABLE `member` (
   `id` varchar(15) NOT NULL,
   `name` varchar(15) NOT NULL,
   `phone` int NOT NULL,
+  `pw` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping hatewait.data for table `member`
+-- Dumping data for table `member`
 --
 
 LOCK TABLES `member` WRITE;
@@ -86,7 +85,7 @@ CREATE TABLE `queue` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping hatewait.data for table `queue`
+-- Dumping data for table `queue`
 --
 
 LOCK TABLES `queue` WRITE;
@@ -106,13 +105,17 @@ CREATE TABLE `store` (
   `name` varchar(20) NOT NULL,
   `info` text,
   `time` text,
-  `anum` int DEFAULT NULL,
+  `maxpeople` int DEFAULT NULL,
+  `autonum` int DEFAULT NULL,
+  `address` text,
+  `phone` int DEFAULT NULL,
+  `pw` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping hatewait.data for table `store`
+-- Dumping data for table `store`
 --
 
 LOCK TABLES `store` WRITE;
@@ -133,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-18 22:57:08
+-- Dump completed on 2020-05-23 22:18:28
