@@ -20,16 +20,18 @@ public class StoreService {
 		qs = new QueueService();
 	}
 
-	public void insertStore(String id, String name, String info, String time, int anum) {
-		StoreVo svo = settingVoUtil.setStoreVo(id, name, info, time, anum);
+	public void insertStore(String id, String name, String info, String time, int maxpeople,
+			int autonum, String address, int phone, String pw) {
+		StoreVo svo = settingVoUtil.setStoreVo(id, name, info, time, maxpeople, autonum, address, phone, pw);
 		System.out.println("StoreVo:::::::::::" + svo.toString());
 
 		sd.insertStore(svo);
 		return;
 	}
 
-	public void modifyStore(String id, String info, String time, int anum) {
-		StoreVo svo = settingVoUtil.setStoreVo(id, info, time, anum);
+	public void modifyStore(String id, String name, String info, String time, int maxpeople,
+			int autonum, String address, int phone, String pw) {
+		StoreVo svo = settingVoUtil.setStoreVo(id, name, info, time, maxpeople, autonum, address, phone, pw);
 		System.out.println("StoreVo:::::::::::" + svo.toString());
 
 		sd.modifyStore(svo);

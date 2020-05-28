@@ -34,9 +34,7 @@ public class StoreDao {
 	// 가게 정보 수정
 	public void modifyStore(StoreVo svo) {
 		String set = "";
-		set = makeCommandUtil.setString(svo.getInfo(), set, "info");
-		set = makeCommandUtil.setString(svo.getTime(), set, "time");
-		set = makeCommandUtil.setString(svo.getAnum(), set, "anum");
+		set = makeCommandUtil.setStoreString(svo, set);
 		dbCommand = "UPDATE store set " + set + " where id='" + svo.getId() + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.update(dbCommand);

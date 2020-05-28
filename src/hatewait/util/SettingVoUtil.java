@@ -41,11 +41,12 @@ public class SettingVoUtil {
 		return cvo;
 	}
 
-	public MemberVo setMemberVo(String id, String name, int phone) {
+	public MemberVo setMemberVo(String id, String name, int phone, String pw) {
 		MemberVo mvo = new MemberVo();
 		mvo.setId(id);
 		mvo.setName(name);
 		mvo.setPhone(phone);
+		mvo.setPw(pw);
 		return mvo;
 	}
 
@@ -74,24 +75,29 @@ public class SettingVoUtil {
 		return qvo;
 	}
 
-	public StoreVo setStoreVo(String id, String name, String info, String time, int anum) {
+	public StoreVo setStoreVo(String id, String name, String info, String time, int maxpeople,
+			int autonum, String address, int phone, String pw) {
 		StoreVo svo = new StoreVo();
 		svo.setId(id);
 		svo.setName(name);
 		svo.setInfo(info);
 		svo.setTime(time);
-		svo.setAnum(anum);
+		svo.setMaxpeople(maxpeople);
+		svo.setAutonum(autonum);
+		svo.setAddress(address);
+		svo.setPhone(phone);
+		svo.setPw(pw);
 		return svo;
 	}
 
-	public StoreVo setStoreVo(String id, String info, String time, int anum) {
-		StoreVo svo = new StoreVo();
-		svo.setId(id);
-		svo.setInfo(info);
-		svo.setTime(time);
-		svo.setAnum(anum);
-		return svo;
-	}
+//	public StoreVo setStoreVo(String id, String info, String time, int autonum) {
+//		StoreVo svo = new StoreVo();
+//		svo.setId(id);
+//		svo.setInfo(info);
+//		svo.setTime(time);
+//		svo.setAutonum(autonum);
+//		return svo;
+//	}
 
 	public List<QueueInfoVo> setQueueInfoVoList(ResultSet rs) {
 		List<QueueInfoVo> qivo = new ArrayList<>();
