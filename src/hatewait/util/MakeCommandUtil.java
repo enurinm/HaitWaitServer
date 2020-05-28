@@ -1,5 +1,7 @@
 package hatewait.util;
 
+import hatewait.vo.ClientVo;
+import hatewait.vo.MemberVo;
 import hatewait.vo.StoreVo;
 
 public class MakeCommandUtil {
@@ -38,6 +40,19 @@ public class MakeCommandUtil {
 		set=setString(svo.getAddress(),set,"address");
 		set=setString(svo.getPhone(),set,"phone");
 		set=setString(svo.getPw(),set,"pw");
+		return set;
+	}
+	
+	public String setMemberString(MemberVo mvo, String set) {
+		set=setString(mvo.getName(),set,"name");
+		set=setString(mvo.getPhone(),set,"phone");
+		set=setString(mvo.getPw(),set,"pw");
+		return set;
+	}
+	
+	public String setClientStringNP(ClientVo cvo, String set) {
+		set=setString(cvo.getName(),set,"name");
+		set=setString(cvo.getPhone(),set,"phone");
 		return set;
 	}
 

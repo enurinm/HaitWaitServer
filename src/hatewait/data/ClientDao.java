@@ -77,5 +77,14 @@ public class ClientDao {
 		db.update(dbCommand);
 		return;
 	}
+	
+	public void modifyClient(ClientVo cvo) {
+		String set = "";
+		set = makeCommandUtil.setClientStringNP(cvo, set);
+		dbCommand = "UPDATE client set " + set + " where id='" + cvo.getId() + "';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		db.update(dbCommand);
+		return;
+	}
 
 }

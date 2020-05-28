@@ -34,5 +34,12 @@ public class ClientService {
 	public int countNonMemverClient() {
 		return cd.countNonMemverClient();
 	}
+	
+	public void modifyClient(String id, String name, int phone, int peopleNum, boolean isMember) {
+		ClientVo cvo = settingVoUtil.setClientVo(id, phone, name, peopleNum, isMember);
+		System.out.println("ClientVo::::::::::::::" + cvo.toString());
+		cd.modifyClient(cvo);
+		return;
+	}
 
 }

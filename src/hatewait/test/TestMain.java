@@ -16,7 +16,7 @@ public class TestMain {
 		QueueService qs=new QueueService();
 		
 //		cs.insertClient("m0000", "김실장", 1012345678, 3, true);// 010 오류나네.. 10으로 넘겨야함
-//		ms.insertMember("m0000", "김실장", 1012345678);
+//		ms.insertMember("m0000", "김실장", 1012345678,"1111");
 //		ss.insertStore("s0000", "맛있는가게", "존맛", "매일 10-15", 30, 3, "광진구 화양동 1", 205671200, "1111");;
 //		qs.insertQueue("s0000", "m0000", 1);
 		
@@ -36,6 +36,8 @@ public class TestMain {
 //		ss.addQueue("s0000", "홍길동", 1098765432, 5);
 		
 //		ss.getStoreQueueList("s0000");
+		
+//		ms.modifyMember("m0000", "김수정", 1098765432, "0000");
 		
 	}
 
