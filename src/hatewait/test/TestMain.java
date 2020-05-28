@@ -33,7 +33,7 @@ public class TestMain {
 //		cs.insertClient("m0000", null, -1, 1, true);
 		
 //		ss.addQueue("s0000", "m0000", 20);
-//		ss.addQueue("s0000", "ȫ�浿", 1098765432, 5);
+		ss.addQueue("s0000", "ȫ�浿", 1098765432, 5);
 		
 //		ss.getStoreQueueList("s0000");
 		

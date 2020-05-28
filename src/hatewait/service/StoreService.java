@@ -38,7 +38,7 @@ public class StoreService {
 		return;
 	}
 
-	public void addQueue(String sid, String cid, int peopleNum) { // 대기열에 손님 추가-회원전용
+	public String addQueue(String sid, String cid, int peopleNum) { // 대기열에 손님 추가-회원전용
 		// 클라이언트가 없을 경우 클라이언트 등록(회원 전용)
 		cs.insertClient(cid, null, -1, peopleNum, true);
 
@@ -46,8 +46,11 @@ public class StoreService {
 		// 현재 큐에 turn이 몇번째까지 있는지 turn의 최대값 구하기 -> 몇명인지 구해서 +1함
 		// max(turn)+1 한 값 입력
 		int turn = qs.countQueue(sid) + 1;
+		String name=cs.getClient(cid).getName();
 		qs.insertQueue(sid, cid, turn);
-		return;
+		String returnValue="INSQUE;MEMBER;"+name+";"+turn;
+		System.out.println("::::::::::"+returnValue);
+		return returnValue;
 	}
 
 	public void addQueue(String sid, String name, int phone, int peopleNum) { // 대기열에 손님 추가-비회원전용
@@ -61,6 +64,8 @@ public class StoreService {
 		// max(turn)+1 한 값 입력
 		int turn = qs.countQueue(sid) + 1;
 		qs.insertQueue(sid, cid, turn);
+		String returnValue="INSQUE;MEMBER;"+turn;
+		System.out.println("::::::::::"+returnValue);
 		return;
 	}
 
