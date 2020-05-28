@@ -31,6 +31,17 @@ public class MakeCommandUtil {
 		return set;
 	}
 	
+	public String setStringMinus(int n, String set, String column) {
+		if (n <= 0) {
+			if (!set.isBlank()) {
+				set = set.concat(", " + column + "='" + n + "'");
+			} else {
+				set = set.concat(column + "='" + n + "'");
+			}
+		} else {}
+		return set;
+	}
+	
 	public String setStoreString(StoreVo svo, String set) {
 		set=setString(svo.getName(),set,"name");
 		set=setString(svo.getInfo(),set,"info");

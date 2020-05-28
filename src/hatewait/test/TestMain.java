@@ -25,7 +25,8 @@ public class TestMain {
 		
 //		ss.modifyStore("s0000", "맛있는가게", "뭔가 그럴듯한 설명", "매일 10시-15시", 30, 4, "광진구 화양동 1", 205671200, "1111");
 		
-//		qs.deleteQueue("s0000", "n0001");
+//		qs.deleteQueue("s0000", "n0000");
+//		qs.deleteQueue("s0000", "m0000");
 		
 //		System.out.println("queue::::::::::::::"+qs.countQueue("s0000"));
 //		System.out.println("제 차례는요 :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
@@ -33,7 +34,7 @@ public class TestMain {
 //		cs.insertClient("m0000", null, -1, 1, true);
 		
 //		ss.addQueue("s0000", "m0000", 20);
-		ss.addQueue("s0000", "홍길동", 1098765432, 5);
+//		ss.addQueue("s0000", "홍길동", 1098765432, 5);
 		
 //		ss.getStoreQueueList("s0000");
 		
