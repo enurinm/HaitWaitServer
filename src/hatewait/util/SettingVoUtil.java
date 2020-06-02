@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hatewait.vo.ClientVo;
+import hatewait.vo.MemberHomeVo;
 import hatewait.vo.MemberVo;
 import hatewait.vo.QueueInfoVo;
 import hatewait.vo.QueueVo;
@@ -118,6 +119,22 @@ public class SettingVoUtil {
 			System.out.println("hatewait.util.SettingVoUtil::ResultSet List setting error:: " + e);
 		}
 		return qivo;
+	}
+	
+	public MemberHomeVo setMemberHomeVo(ResultSet rs) {
+		MemberHomeVo mhvo=new MemberHomeVo();
+		try {
+			rs.next();
+			mhvo.setMname(rs.getString("mname"));
+			mhvo.setSname(rs.getString("sname"));
+			mhvo.setTurn(rs.getInt("turn"));
+			if (rs != null)
+				rs.close();
+			else {}
+		} catch (SQLException e) {
+			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+		}
+		return mhvo;
 	}
 
 }

@@ -1,17 +1,21 @@
 package hatewait.data;
 
 import hatewait.util.MakeCommandUtil;
+import hatewait.util.SettingVoUtil;
+import hatewait.vo.MemberHomeVo;
 import hatewait.vo.MemberVo;
 
 public class MemberDao {
 	HateWaitDBAccess db;
 	String dbCommand;
 	MakeCommandUtil makeCommandUtil;
+	SettingVoUtil settingVoUtil;
 
 	public MemberDao() {
 		dbCommand = "";
 		this.db = new HateWaitDBAccess();
 		makeCommandUtil = new MakeCommandUtil();
+		settingVoUtil = new SettingVoUtil();
 	}
 
 	// 회원 등록
@@ -32,5 +36,14 @@ public class MemberDao {
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.update(dbCommand);
 		return;
+	}
+	
+	public MemberHomeVo memberHomeInfo(String id) {
+		dbCommand = "SELECT member.name AS mname, store.name AS sname, queue.turn "
+				+ "FROM member, queue, store "
+				+ "WHERE queue.cid='"+id+"' AND member.id=queue.cid AND store.id=queue.sid;";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		MemberHomeVo mhvo= settingVoUtil.setMemberHomeVo(db.select(dbCommand));
+		return mhvo;
 	}
 }

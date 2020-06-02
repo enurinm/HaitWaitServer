@@ -40,6 +40,8 @@ public class TestMain {
 		
 //		ms.modifyMember("m0000", "±è¼öÁ¤", 1098765432, "0000");
 		
+		System.out.println("mem home::::::::::::"+ms.loadMemberHome("m0000"));
+		
 	}
 
 }

@@ -74,5 +74,11 @@ public class StoreService {
 		System.out.println("::::::::" + qivo.toString());
 		return qivo;
 	}
+	
+	public String loadStoreHome(String id) { //MAIN;STORE;<<가게이름;현재가게대기인원;다음손님이름;다음손님인원수>>
+		String home="";
+		//가게이름(store);현재가게대기인원(queue);다음손님이름(queue.cid->client);다음손님인원수(queue.cid->client)
+		return home;
+	}
 
 }
