@@ -10,6 +10,7 @@ import hatewait.vo.MemberHomeVo;
 import hatewait.vo.MemberVo;
 import hatewait.vo.QueueInfoVo;
 import hatewait.vo.QueueVo;
+import hatewait.vo.StoreHomeVo;
 import hatewait.vo.StoreVo;
 
 public class SettingVoUtil {
@@ -136,5 +137,34 @@ public class SettingVoUtil {
 		}
 		return mhvo;
 	}
-
+	
+	public StoreHomeVo setStoreHomeVo(ResultSet rs) {
+		StoreHomeVo shvo=new StoreHomeVo();
+		try {
+			rs.next();
+			shvo.setSname(rs.getString("sname"));
+//			shvo.setAllNum(rs.getInt("allnum"));
+			shvo.setCname(rs.getString("cname"));
+			shvo.setPeopleNum(rs.getInt("peopleNum"));
+			if (rs != null)
+				rs.close();
+			else {}
+		} catch (SQLException e) {
+			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+		}
+		return shvo;
+	}
+	
+	public StoreHomeVo setStoreHomeVoAllNum(ResultSet rs, StoreHomeVo shvo) {
+		try {
+			rs.next();
+			shvo.setAllNum(rs.getInt("allnum"));
+			if (rs != null)
+				rs.close();
+			else {}
+		} catch (SQLException e) {
+			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+		}
+		return shvo;
+	}
 }

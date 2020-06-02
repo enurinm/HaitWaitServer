@@ -5,6 +5,7 @@ import java.util.List;
 import hatewait.data.StoreDao;
 import hatewait.util.SettingVoUtil;
 import hatewait.vo.QueueInfoVo;
+import hatewait.vo.StoreHomeVo;
 import hatewait.vo.StoreVo;
 
 public class StoreService {
@@ -75,10 +76,11 @@ public class StoreService {
 		return qivo;
 	}
 	
-	public String loadStoreHome(String id) { //MAIN;STORE;<<가게이름;현재가게대기인원;다음손님이름;다음손님인원수>>
-		String home="";
+	public StoreHomeVo loadStoreHome(String id) { //MAIN;STORE;가게이름;현재가게대기인원;다음손님이름;다음손님인원수
 		//가게이름(store);현재가게대기인원(queue);다음손님이름(queue.cid->client);다음손님인원수(queue.cid->client)
-		return home;
+		StoreHomeVo shvo=sd.memberHomeInfo(id);
+		System.out.println(":::::::::::"+shvo.toString());
+		return shvo;
 	}
 
 }
