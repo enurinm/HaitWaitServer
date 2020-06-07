@@ -27,6 +27,9 @@ public class QueueService {
 	public void deleteQueue(String sid, String cid) {
 		QueueVo qvo = settingVoUtil.setQueueVo(sid, cid, -1);
 		System.out.println("QueueVo:::::::::::" + qvo.toString());
+		//turn 수정
+		int turn=qd.getQueue(cid).getTurn();
+		qd.updateTurn(turn);
 		qd.deleteQueue(qvo);
 		if(cd.isClientMember(cid)) {//회원일 경우 client.peoplenum 수정,
 			cd.modifyClientPeopleNum(cid, -1);

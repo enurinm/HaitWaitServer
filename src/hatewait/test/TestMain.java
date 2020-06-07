@@ -33,16 +33,18 @@ public class TestMain {
 		
 //		cs.insertClient("m0000", null, -1, 1, true);
 		
+//		ss.addQueue("s0000", "신사임당", 1011111111, 9);
 //		ss.addQueue("s0000", "m0000", 20);
-//		ss.addQueue("s0000", "홍길동", 1098765432, 5);
+//		ss.addQueue("s0000", "이황", 1022222222, 1);
 		
 //		ss.getStoreQueueList("s0000");
 		
 //		ms.modifyMember("m0000", "김수정", 1098765432, "0000");
 		
 //		System.out.println("mem home::::::::::::"+ms.loadMemberHome("m0000"));
-		System.out.println("str home::::::::::::"+ss.loadStoreHome("s0000"));
+//		System.out.println("str home::::::::::::"+ss.loadStoreHome("s0000"));
 		
+//		qs.deleteQueue("s0000", "n0001");
 		
 	}
 

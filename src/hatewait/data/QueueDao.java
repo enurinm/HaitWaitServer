@@ -59,4 +59,11 @@ public class QueueDao {
 		}
 		return count;
 	}
+	
+	public void updateTurn(int turn) {
+		dbCommand = "update queue set turn=turn-1 where turn>"+turn+";";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		db.update(dbCommand);
+		return;
+	}
 }
