@@ -64,6 +64,8 @@ public class TestMain {
 		
 		m="DELQUE;s1111;n0003";
 		
+		m="STRQUE;s1111";
+		
 		m="";
 		
 		System.out.println("::::::::::::"+mp.parseCategory(m));

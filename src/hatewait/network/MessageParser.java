@@ -85,6 +85,7 @@ public class MessageParser {
 
 	String strque(String[] message) {
 		String returnString = "";
+		ss.getStoreQueueList(message[1]);
 		return returnString;
 	}
 
