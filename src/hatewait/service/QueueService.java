@@ -45,11 +45,11 @@ public class QueueService {
 		return turn;
 	}
 	
-	int getClientTurn(String cid) {
-		int turn=0;
-		turn=qd.getQueue(cid).getTurn();
-		return turn;
-	}
+//	int getClientTurn(String cid) {
+//		int turn=0;
+//		turn=qd.getQueue(cid).getTurn();
+//		return turn;
+//	}
 	
 	public int countQueue(String sid) {
 		int count=qd.countQueue(sid);
