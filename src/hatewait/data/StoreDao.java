@@ -52,7 +52,7 @@ public class StoreDao {
 		return qivo;
 	}
 	
-	public StoreHomeVo memberHomeInfo(String id) {
+	public StoreHomeVo storeHomeInfo(String id) {
 		dbCommand = "SELECT store.name AS sname, client.name AS cname, client.peopleNum FROM store, queue, client "
 				+ "WHERE store.id='"+id+"' and queue.sid=store.id and client.id=queue.cid "
 				+ "and queue.turn=(SELECT MIN(turn) FROM queue)";

@@ -78,7 +78,7 @@ public class StoreService {
 	
 	public String loadStoreHome(String id) { //MAIN;STORE;가게이름;현재가게대기인원;다음손님이름;다음손님인원수
 		//가게이름(store);현재가게대기인원(queue);다음손님이름(queue.cid->client);다음손님인원수(queue.cid->client)
-		StoreHomeVo shvo=sd.memberHomeInfo(id);
+		StoreHomeVo shvo=sd.storeHomeInfo(id);
 		System.out.println(":::::::::::"+shvo.toString());
 		String returnValue="MAIN;STORE;"+shvo.getSname()+";"+shvo.getAllNum()+";"+shvo.getCname()+";"+shvo.getPeopleNum();
 		return returnValue;
