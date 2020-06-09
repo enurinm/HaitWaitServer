@@ -1,5 +1,6 @@
 package hatewait.test;
 
+import hatewait.network.MessageParser;
 import hatewait.service.ClientService;
 import hatewait.service.MemberService;
 import hatewait.service.QueueService;
@@ -17,7 +18,7 @@ public class TestMain {
 		
 //		cs.insertClient("m0000", "김실장", 1012345678, 3, true);// 010 오류나네.. 10으로 넘겨야함
 //		ms.insertMember("m0000", "김실장", 1012345678,"1111");
-//		ss.insertStore("s0000", "맛있는가게", "존맛", "매일 10-15", 30, 3, "광진구 화양동 1", 205671200, "1111");;
+//		ss.insertStore("s0000", "맛있는가게", "존맛", "매일 10-15", 30, 3, "광진구 화양동 1", 205671200, "1111");
 //		qs.insertQueue("s0000", "m0000", 1);
 		
 //		ClientVo cvo= cs.getClient("m0000");
@@ -45,6 +46,27 @@ public class TestMain {
 //		System.out.println("str home::::::::::::"+ss.loadStoreHome("s0000"));
 		
 //		qs.deleteQueue("s0000", "n0001");
+		
+		MessageParser mp=new MessageParser();
+		
+		String m="";
+		m="SIGNUP;STORE;s1111;육회땡긴다;육회먹고싶을때 가는가게;평일 9시-20시;30;3;서울특별시 어쩌구 저쩌구 1번지;245678903;1111";
+		m="SIGNUP;MEMBER;m0001;김이름;1098762345;1111";
+		
+		m="MODIFY;STORE;s1111;육회땡긴다;육회먹고싶을때 가는가게;평일 9시-20시;40;3;서울특별시 어쩌구 1번지;245678903;1111";
+		m="MODIFY;MEMBER;m0001;박이름;1098762345;1111";
+		
+		m="INSQUE;NONMEM;s1111;최옥경;1099999999;3";
+		m="INSQUE;MEMBER;s1111;m0001;3";
+		
+		m="MAIN;STORE;s0000";
+		m="MAIN;MEMBER;m0001";
+		
+		m="DELQUE;s1111;n0003";
+		
+		m="";
+		
+		System.out.println("::::::::::::"+mp.parseCategory(m));
 		
 	}
 

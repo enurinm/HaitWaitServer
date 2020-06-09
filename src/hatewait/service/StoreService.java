@@ -54,10 +54,10 @@ public class StoreService {
 		return returnValue;
 	}
 
-	public void addQueue(String sid, String name, int phone, int peopleNum) { // 대기열에 손님 추가-비회원전용
+	public String addQueue(String sid, String name, int phone, int peopleNum) { // 대기열에 손님 추가-비회원전용
 		// 클라이언트가 없을 경우 클라이언트 등록(회원 전용)
 		// 비회원일 경우 n0000으로 아이디 생성하게 하는 것 추가
-		String cid = "n" + String.format("%04d", cs.countNonMemverClient());
+		String cid = "n" + String.format("%04d", cs.countNonMemverClient()+1);
 		cs.insertClient(cid, name, phone, peopleNum, false);
 
 		// 큐등록
@@ -65,9 +65,9 @@ public class StoreService {
 		// max(turn)+1 한 값 입력
 		int turn = qs.countQueue(sid) + 1;
 		qs.insertQueue(sid, cid, turn);
-		String returnValue="INSQUE;MEMBER;"+turn;
+		String returnValue="INSQUE;NONMEM;"+turn;
 		System.out.println("::::::::::"+returnValue);
-		return;
+		return returnValue;
 	}
 
 	public List<QueueInfoVo> getStoreQueueList(String sid) {
@@ -76,11 +76,12 @@ public class StoreService {
 		return qivo;
 	}
 	
-	public StoreHomeVo loadStoreHome(String id) { //MAIN;STORE;가게이름;현재가게대기인원;다음손님이름;다음손님인원수
+	public String loadStoreHome(String id) { //MAIN;STORE;가게이름;현재가게대기인원;다음손님이름;다음손님인원수
 		//가게이름(store);현재가게대기인원(queue);다음손님이름(queue.cid->client);다음손님인원수(queue.cid->client)
 		StoreHomeVo shvo=sd.memberHomeInfo(id);
 		System.out.println(":::::::::::"+shvo.toString());
-		return shvo;
+		String returnValue="MAIN;STORE;"+shvo.getSname()+";"+shvo.getAllNum()+";"+shvo.getCname()+";"+shvo.getPeopleNum();
+		return returnValue;
 	}
 
 }

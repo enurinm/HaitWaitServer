@@ -29,7 +29,7 @@ public class QueueService {
 		System.out.println("QueueVo:::::::::::" + qvo.toString());
 		//turn 수정
 		int turn=qd.getQueue(cid).getTurn();
-		qd.updateTurn(turn);
+		qd.updateTurn(turn, sid);
 		qd.deleteQueue(qvo);
 		if(cd.isClientMember(cid)) {//회원일 경우 client.peoplenum 수정,
 			cd.modifyClientPeopleNum(cid, -1);
@@ -39,10 +39,10 @@ public class QueueService {
 		return;
 	}
 	
-	public String getClientTurn(String sid, String cid) {
+	public int getClientTurn(String sid, String cid) {
 		int turn=0;
 		turn=qd.getQueue(cid).getTurn();
-		return countQueue(sid)+"명 중 "+turn+"번 째";
+		return turn;
 	}
 	
 	int getClientTurn(String cid) {
