@@ -20,18 +20,18 @@ public class ClientDao {
 		makeCommandUtil = new MakeCommandUtil();
 	}
 
-	// client µî·Ï
+	// client ï¿½ï¿½ï¿½
 	public void insertClient(ClientVo cvo) {
-		// dbCommand ¼öÁ¤
+		// dbCommand ï¿½ï¿½ï¿½ï¿½
 		dbCommand = "INSERT INTO client (" + cvo.column() + ") VALUES (" + cvo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// dbÈ£Ãâ
+		// dbÈ£ï¿½ï¿½
 		db.insert(dbCommand);
 		return;
 	}
 
 	/*
-	 * client Á¶È¸ -°³ÀÎ //select
+	 * client ï¿½ï¿½È¸ -ï¿½ï¿½ï¿½ï¿½ //select
 	 */
 	public ClientVo getClient(String id) {
 		dbCommand = "SELECT * FROM client WHERE id='" + id + "';";
@@ -50,6 +50,7 @@ public class ClientDao {
 			rs.next();
 			count = rs.getInt("count");
 		} catch (SQLException e) {
+			System.err.println("hatewait.data.ClientDao::countNonMemverClient()");
 			e.printStackTrace();
 		}
 		return count;
@@ -64,6 +65,7 @@ public class ClientDao {
 			rs.next();
 			isEC = rs.getBoolean("success");
 		} catch (SQLException e) {
+			System.err.println("hatewait.data.ClientDao::isExistClient()");
 			e.printStackTrace();
 		}
 		return isEC;
@@ -105,13 +107,14 @@ public class ClientDao {
 			rs.next();
 			ismem = rs.getBoolean("isMember");
 		} catch (SQLException e) {
+			System.err.println("hatewait.data.ClientDao::isClientMember()");
 			e.printStackTrace();
 		}
 		return ismem;
 	}
 
 	public void deleteClient(String id) {
-		// dbCommand ¼öÁ¤
+		// dbCommand ï¿½ï¿½ï¿½ï¿½
 		dbCommand = "DELETE FROM client WHERE id='" + id + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.delete(dbCommand);

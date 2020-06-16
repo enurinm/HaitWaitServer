@@ -17,27 +17,27 @@ public class QueueDao {
 		settingVoUtil = new SettingVoUtil();
 	}
 
-	// ´ë±â¿­ µî·Ï
+	// ï¿½ï¿½â¿­ ï¿½ï¿½ï¿½
 	public void insertQueue(QueueVo qvo) {
-		// dbCommand ¼öÁ¤
+		// dbCommand ï¿½ï¿½ï¿½ï¿½
 		dbCommand = "INSERT INTO queue (" + qvo.column() + ") VALUES (" + qvo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// dbÈ£Ãâ
+		// dbÈ£ï¿½ï¿½
 		db.insert(dbCommand);
 		return;
 	}
 
-	// ´ë±â¿­ »èÁ¦
+	// ï¿½ï¿½â¿­ ï¿½ï¿½ï¿½ï¿½
 	public void deleteQueue(QueueVo qvo) {
-		// dbCommand ¼öÁ¤
+		// dbCommand ï¿½ï¿½ï¿½ï¿½
 		dbCommand = "DELETE FROM queue WHERE cid='" + qvo.getCid() + "' AND sid='" + qvo.getSid() + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.delete(dbCommand);
 		return;
 	}
 
-	// ´ë±â¿­ Á¶È¸ ÇÔ¼öµé
-	// Å¬¶óÀÌ¾ðÆ® id·Î ´ë±â¿­ Á¶È¸
+	// ï¿½ï¿½â¿­ ï¿½ï¿½È¸ ï¿½Ô¼ï¿½ï¿½ï¿½
+	// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® idï¿½ï¿½ ï¿½ï¿½â¿­ ï¿½ï¿½È¸
 	public QueueVo getQueue(String cid) {
 		dbCommand = "SELECT * FROM queue WHERE cid='" + cid + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
@@ -45,7 +45,7 @@ public class QueueDao {
 		return qvo;
 	}
 
-	// °¡°Ô id·Î ´ë±â¿­ ¼ö ¼¼±â > count
+	// ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½â¿­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ > count
 	public int countQueue(String sid) {
 		int count = 0;
 		dbCommand = "SELECT COUNT(*) as count FROM queue WHERE sid='" + sid + "';";
@@ -55,6 +55,7 @@ public class QueueDao {
 			rs.next();
 			count = rs.getInt("count");
 		} catch (SQLException e) {
+			System.err.println("hatewait.data.QueueDao::countQueue()");
 			e.printStackTrace();
 		}
 		return count;

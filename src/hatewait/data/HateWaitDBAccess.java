@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class HateWaitDBAccess {
-	// º¯¼ö
+	// ï¿½ï¿½ï¿½ï¿½
 	private java.sql.Connection conn;
 	private java.sql.Statement stmt;
 	private java.sql.ResultSet rs;
@@ -13,7 +13,7 @@ public class HateWaitDBAccess {
 	private String dbPW = "root";
 	private String jdbcDriver = "com.mysql.cj.jdbc.Driver"; // com.mysql.jdbc.Driver
 
-	// »ý¼ºÀÚ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	HateWaitDBAccess() {
 		connect();
 	}
@@ -24,7 +24,7 @@ public class HateWaitDBAccess {
 	 */
 
 	/*
-	 * connect - mysql ¿¬°á
+	 * connect - mysql ï¿½ï¿½ï¿½ï¿½
 	 */
 	void connect() {
 		try {
@@ -32,65 +32,65 @@ public class HateWaitDBAccess {
 			this.conn = java.sql.DriverManager.getConnection(dbInfo, dbID, dbPW);
 			this.stmt = this.conn.createStatement();
 		} catch (Exception e) {
-			System.out.println("hatewait.data.HateWaitDBAccess::connection error:: " + e);
+			System.err.println("hatewait.data.HateWaitDBAccess::connection error:: " + e);
 		}
 		return;
 	}
 
 	/*
-	 * add - µî·Ï ÇÔ¼ö - member µî·Ï - client µî·Ï - store µî·Ï - queue µî·Ï
+	 * add - ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ - member ï¿½ï¿½ï¿½ - client ï¿½ï¿½ï¿½ - store ï¿½ï¿½ï¿½ - queue ï¿½ï¿½ï¿½
 	 */
 	void insert(String dbCommand) {
 		try {
 			this.stmt.executeUpdate(dbCommand);
 		} catch (SQLException e) {
-			System.out.println("hatewait.data.HateWaitDBAccess::insert error:: " + e);
+			System.err.println("hatewait.data.HateWaitDBAccess::insert error:: " + e);
 		}
 		return;
 	}
 
 	/*
-	 * read - Á¶È¸ ÇÔ¼ö - client Á¶È¸ - queue Á¶È¸ --
+	 * read - ï¿½ï¿½È¸ ï¿½Ô¼ï¿½ - client ï¿½ï¿½È¸ - queue ï¿½ï¿½È¸ --
 	 */
 	ResultSet select(String dbCommand) {
 		try {
 			this.rs = this.stmt.executeQuery(dbCommand);
 		} catch (SQLException e) {
-			System.out.println("hatewait.data.HateWaitDBAccess::select error:: " + e);
+			System.err.println("hatewait.data.HateWaitDBAccess::select error:: " + e);
 		}
 		return this.rs;
 	}
 
 	/*
-	 * delete - »èÁ¦ ÇÔ¼ö - queue »èÁ¦
+	 * delete - ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ - queue ï¿½ï¿½ï¿½ï¿½
 	 */
 	void delete(String dbCommand) {
 		try {
 			this.stmt.executeUpdate(dbCommand);
 		} catch (SQLException e) {
-			System.out.println("hatewait.data.HateWaitDBAccess::delete error:: " + e);
+			System.err.println("hatewait.data.HateWaitDBAccess::delete error:: " + e);
 		}
 		return;
 	}
 
 	/*
-	 * update - ¼öÁ¤ ÇÔ¼ö - store ¼öÁ¤
+	 * update - ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ - store ï¿½ï¿½ï¿½ï¿½
 	 */
 	void update(String dbCommand) {
 		try {
 			this.stmt.executeUpdate(dbCommand);
 		} catch (SQLException e) {
-			System.out.println("hatewait.data.HateWaitDBAccess::update error:: " + e);
+			System.err.println("hatewait.data.HateWaitDBAccess::update error:: " + e);
 		}
 		return;
 	}
 
-	// close - Á¾·á ÇÔ¼ö
+	// close - ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	void close() {
 		try {
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("hatewait.data.HateWaitDBAccess::close error:: " + e);
+			System.err.println("hatewait.data.HateWaitDBAccess::close error:: " + e);
 		}
 		return;
 	}

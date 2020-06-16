@@ -38,7 +38,7 @@ public class SettingVoUtil {
 				rs.close();
 			else {}
 		} catch (SQLException e) {
-			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
 		}
 		return cvo;
 	}
@@ -54,7 +54,7 @@ public class SettingVoUtil {
 
 	public QueueVo setQueueVo(String sid, String cid, int turn) {
 		QueueVo qvo = new QueueVo();
-		// sid, cid°¡ ½ÇÁ¸ÇÏ´ÂÁö È®ÀÎÇÏ°í ¾øÀ¸¸é ¿¡·¯ Ãâ·ÂÇÏ´Â ÄÚµå Ãß°¡
+		// sid, cidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½
 		qvo.setCid(cid);
 		qvo.setSid(sid);
 		qvo.setTurn(turn);
@@ -72,7 +72,7 @@ public class SettingVoUtil {
 				rs.close();
 			else {}
 		} catch (SQLException e) {
-			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
 		}
 		return qvo;
 	}
@@ -117,7 +117,7 @@ public class SettingVoUtil {
 				rs.close();
 			else {}
 		} catch (SQLException e) {
-			System.out.println("hatewait.util.SettingVoUtil::ResultSet List setting error:: " + e);
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet List setting error:: " + e);
 		}
 		return qivo;
 	}
@@ -133,7 +133,7 @@ public class SettingVoUtil {
 				rs.close();
 			else {}
 		} catch (SQLException e) {
-			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
 		}
 		return mhvo;
 	}
@@ -150,7 +150,7 @@ public class SettingVoUtil {
 				rs.close();
 			else {}
 		} catch (SQLException e) {
-			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
 		}
 		return shvo;
 	}
@@ -163,7 +163,7 @@ public class SettingVoUtil {
 				rs.close();
 			else {}
 		} catch (SQLException e) {
-			System.out.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
 		}
 		return shvo;
 	}
