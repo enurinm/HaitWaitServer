@@ -1,6 +1,6 @@
 package hatewait.test;
 
-import hatewait.network.MessageParser;
+import hatewait.network.HateWaitSoket;
 import hatewait.service.ClientService;
 import hatewait.service.MemberService;
 import hatewait.service.QueueService;
@@ -15,60 +15,66 @@ public class TestMain {
 		MemberService ms = new MemberService();
 		StoreService ss=new StoreService();
 		QueueService qs=new QueueService();
+		HateWaitSoket sok=new HateWaitSoket();
 		
-//		cs.insertClient("m0000", "±è½ÇÀå", 1012345678, 3, true);// 010 ¿À·ù³ª³×.. 10À¸·Î ³Ñ°Ü¾ßÇÔ
-//		ms.insertMember("m0000", "±è½ÇÀå", 1012345678,"1111");
-//		ss.insertStore("s0000", "¸ÀÀÖ´Â°¡°Ô", "Á¸¸À", "¸ÅÀÏ 10-15", 30, 3, "±¤Áø±¸ È­¾çµ¿ 1", 205671200, "1111");
+//		cs.insertClient("m0000", "ï¿½ï¿½ï¿½ï¿½ï¿½", 1012345678, 3, true);// 010 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.. 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¾ï¿½ï¿½ï¿½
+//		ms.insertMember("m0000", "ï¿½ï¿½ï¿½ï¿½ï¿½", 1012345678,"1111");
+//		ss.insertStore("s0000", "ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ 10-15", 30, 3, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½çµ¿ 1", 205671200, "1111");
 //		qs.insertQueue("s0000", "m0000", 1);
 		
 //		ClientVo cvo= cs.getClient("m0000");
 //		System.out.println("select end at main::::::::::::"+cvo.toString());
 		
-//		ss.modifyStore("s0000", "¸ÀÀÖ´Â°¡°Ô", "¹º°¡ ±×·²µíÇÑ ¼³¸í", "¸ÅÀÏ 10½Ã-15½Ã", 30, 4, "±¤Áø±¸ È­¾çµ¿ 1", 205671200, "1111");
+//		ss.modifyStore("s0000", "ï¿½ï¿½ï¿½Ö´Â°ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½-15ï¿½ï¿½", 30, 4, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½çµ¿ 1", 205671200, "1111");
 		
 //		qs.deleteQueue("s0000", "n0000");
 //		qs.deleteQueue("s0000", "m0000");
 		
 //		System.out.println("queue::::::::::::::"+qs.countQueue("s0000"));
-//		System.out.println("Á¦ Â÷·Ê´Â¿ä :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
+//		System.out.println("ï¿½ï¿½ ï¿½ï¿½ï¿½Ê´Â¿ï¿½ :::::::::::::"+qs.getClientTurn("s0000", "m0000"));
 		
 //		cs.insertClient("m0000", null, -1, 1, true);
 		
-//		ss.addQueue("s0000", "½Å»çÀÓ´ç", 1011111111, 9);
+//		ss.addQueue("s0000", "ï¿½Å»ï¿½ï¿½Ó´ï¿½", 1011111111, 9);
 //		ss.addQueue("s0000", "m0000", 20);
-//		ss.addQueue("s0000", "ÀÌÈ²", 1022222222, 1);
+//		ss.addQueue("s0000", "ï¿½ï¿½È²", 1022222222, 1);
 		
 //		ss.getStoreQueueList("s0000");
 		
-//		ms.modifyMember("m0000", "±è¼öÁ¤", 1098765432, "0000");
+//		ms.modifyMember("m0000", "ï¿½ï¿½ï¿½ï¿½ï¿½", 1098765432, "0000");
 		
 //		System.out.println("mem home::::::::::::"+ms.loadMemberHome("m0000"));
 //		System.out.println("str home::::::::::::"+ss.loadStoreHome("s0000"));
 		
 //		qs.deleteQueue("s0000", "n0001");
 		
-		MessageParser mp=new MessageParser();
+//		MessageParser mp=new MessageParser();
+//		
+//		String m="";
+//		m="SIGNUP;STORE;s1111;ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½;ï¿½ï¿½È¸ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½;ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½-20ï¿½ï¿½;30;3;ï¿½ï¿½ï¿½ï¿½Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¼ï¿½ï¿½ ï¿½ï¿½Â¼ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½;245678903;1111";
+//		m="SIGNUP;MEMBER;m0001;ï¿½ï¿½ï¿½Ì¸ï¿½;1098762345;1111";
+//		
+//		m="MODIFY;STORE;s1111;ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½;ï¿½ï¿½È¸ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½;ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½-20ï¿½ï¿½;40;3;ï¿½ï¿½ï¿½ï¿½Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¼ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½;245678903;1111";
+//		m="MODIFY;MEMBER;m0001;ï¿½ï¿½ï¿½Ì¸ï¿½;1098762345;1111";
+//		
+//		m="INSQUE;NONMEM;s1111;ï¿½Ö¿ï¿½ï¿½ï¿½;1099999999;3";
+//		m="INSQUE;MEMBER;s1111;m0001;3";
+//		
+//		m="MAIN;STORE;s0000";
+//		m="MAIN;MEMBER;m0001";
+//		
+//		m="DELQUE;s1111;n0003";
+//		
+//		m="STRQUE;s1111";
+//		
+//		m="";
 		
-		String m="";
-		m="SIGNUP;STORE;s1111;À°È¸¶¯±ä´Ù;À°È¸¸Ô°í½ÍÀ»¶§ °¡´Â°¡°Ô;ÆòÀÏ 9½Ã-20½Ã;30;3;¼­¿ïÆ¯º°½Ã ¾îÂ¼±¸ ÀúÂ¼±¸ 1¹øÁö;245678903;1111";
-		m="SIGNUP;MEMBER;m0001;±èÀÌ¸§;1098762345;1111";
+//		System.out.println("::::::::::::"+mp.parseCategory(m));
 		
-		m="MODIFY;STORE;s1111;À°È¸¶¯±ä´Ù;À°È¸¸Ô°í½ÍÀ»¶§ °¡´Â°¡°Ô;ÆòÀÏ 9½Ã-20½Ã;40;3;¼­¿ïÆ¯º°½Ã ¾îÂ¼±¸ 1¹øÁö;245678903;1111";
-		m="MODIFY;MEMBER;m0001;¹ÚÀÌ¸§;1098762345;1111";
-		
-		m="INSQUE;NONMEM;s1111;ÃÖ¿Á°æ;1099999999;3";
-		m="INSQUE;MEMBER;s1111;m0001;3";
-		
-		m="MAIN;STORE;s0000";
-		m="MAIN;MEMBER;m0001";
-		
-		m="DELQUE;s1111;n0003";
-		
-		m="STRQUE;s1111";
-		
-		m="";
-		
-		System.out.println("::::::::::::"+mp.parseCategory(m));
+		sok.soketOpen();
+		String msg=sok.soketRead();
+		System.out.println("read:::::"+msg);
+		sok.soketClose();
 		
 	}
 
