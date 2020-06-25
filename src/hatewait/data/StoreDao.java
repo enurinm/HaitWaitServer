@@ -23,17 +23,13 @@ public class StoreDao {
 		settingVoUtil = new SettingVoUtil();
 	}
 
-	// ���� ���� ���
 	public void insertStore(StoreVo svo) {
-		// dbCommand ����
 		dbCommand = "INSERT INTO store (" + svo.column() + ") VALUES (" + svo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// dbȣ��
 		db.insert(dbCommand);
 		return;
 	}
 
-	// ���� ���� ����
 	public void modifyStore(StoreVo svo) {
 		String set = "";
 		set = makeCommandUtil.setStoreString(svo, set);
@@ -43,7 +39,6 @@ public class StoreDao {
 		return;
 	}
 
-	// ���� id�� ��⿭ ��ü ��ȸ > list
 	public List<QueueInfoVo> getClientListFromQueue(String sid) {
 		dbCommand = "SELECT id, phone, name, peopleNum, turn FROM client, queue " 
 				+ "WHERE queue.sid='" + sid	+ "' and queue.cid=client.id;";

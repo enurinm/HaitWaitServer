@@ -40,13 +40,14 @@ public class StoreService {
 		return;
 	}
 
-	public String addQueue(String sid, String cid, int peopleNum) { // ��⿭�� �մ� �߰�-ȸ������
-		// Ŭ���̾�Ʈ�� ���� ��� Ŭ���̾�Ʈ ���(ȸ�� ����)
+	public String addQueue(String sid, String cid, int peopleNum) {
+		// 대기열에 손님 추가-회원전용
+		// 클라이언트가 없을 경우 클라이언트 등록(회원 전용)
 		cs.insertClient(cid, null, -1, peopleNum, true);
 
-		// ť���
-		// ���� ť�� turn�� ���°���� �ִ��� turn�� �ִ밪 ���ϱ� -> ������� ���ؼ� +1��
-		// max(turn)+1 �� �� �Է�
+		// 큐등록
+		// 현재 큐에 turn이 몇번째까지 있는지 turn의 최대값 구하기 -> 몇명인지 구해서 +1함
+		// max(turn)+1 한 값 입력
 		int turn = qs.countQueue(sid) + 1;
 		String name=cs.getClient(cid).getName();
 		qs.insertQueue(sid, cid, turn);
@@ -55,15 +56,16 @@ public class StoreService {
 		return returnValue;
 	}
 
-	public String addQueue(String sid, String name, int phone, int peopleNum) { // ��⿭�� �մ� �߰�-��ȸ������
-		// Ŭ���̾�Ʈ�� ���� ��� Ŭ���̾�Ʈ ���(ȸ�� ����)
-		// ��ȸ���� ��� n0000���� ���̵� �����ϰ� �ϴ� �� �߰�
+	public String addQueue(String sid, String name, int phone, int peopleNum) { 
+		// 대기열에 손님 추가-비회원전용
+		// 클라이언트가 없을 경우 클라이언트 등록(회원 전용)
+		// 비회원일 경우 n0000으로 아이디 생성하게 하는 것 추가
 		String cid = "n" + String.format("%04d", cs.countNonMemverClient()+1);
 		cs.insertClient(cid, name, phone, peopleNum, false);
 
-		// ť���
-		// ���� ť�� turn�� ���°���� �ִ��� turn�� �ִ밪 ���ϱ� -> ������� ���ؼ� +1��
-		// max(turn)+1 �� �� �Է�
+		// 큐등록
+		// 현재 큐에 turn이 몇번째까지 있는지 turn의 최대값 구하기 -> 몇명인지 구해서 +1함
+		// max(turn)+1 한 값 입력		
 		int turn = qs.countQueue(sid) + 1;
 		qs.insertQueue(sid, cid, turn);
 		String returnValue="INSQUE;NONMEM;"+turn;
@@ -81,8 +83,7 @@ public class StoreService {
 		return qls;
 	}
 	
-	public String loadStoreHome(String id) { //MAIN;STORE;�����̸�;���簡�Դ���ο�;�����մ��̸�;�����մ��ο���
-		//�����̸�(store);���簡�Դ���ο�(queue);�����մ��̸�(queue.cid->client);�����մ��ο���(queue.cid->client)
+	public String loadStoreHome(String id) {
 		StoreHomeVo shvo=sd.storeHomeInfo(id);
 		System.out.println(":::::::::::"+shvo.toString());
 		String returnValue="MAIN;STORE;"+shvo.getSname()+";"+shvo.getAllNum()+";"+shvo.getCname()+";"+shvo.getPeopleNum();

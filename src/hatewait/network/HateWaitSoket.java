@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class HateWaitSoket {
-	ServerSocket serverSocket; // 서버 생성을 위한 ServerSocket
+	ServerSocket serverSocket;
 	private static int PORT = 3000;
 	
 	
@@ -13,7 +13,6 @@ public class HateWaitSoket {
 		try {
 			serverSocket = new ServerSocket(PORT);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
