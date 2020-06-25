@@ -5,6 +5,7 @@ import java.util.List;
 import hatewait.data.StoreDao;
 import hatewait.util.SettingVoUtil;
 import hatewait.vo.QueueInfoVo;
+import hatewait.vo.QueueListSerializable;
 import hatewait.vo.StoreHomeVo;
 import hatewait.vo.StoreVo;
 
@@ -39,13 +40,13 @@ public class StoreService {
 		return;
 	}
 
-	public String addQueue(String sid, String cid, int peopleNum) { // ´ë±â¿­¿¡ ¼Õ´Ô Ãß°¡-È¸¿øÀü¿ë
-		// Å¬¶óÀÌ¾ðÆ®°¡ ¾øÀ» °æ¿ì Å¬¶óÀÌ¾ðÆ® µî·Ï(È¸¿ø Àü¿ë)
+	public String addQueue(String sid, String cid, int peopleNum) { // ï¿½ï¿½â¿­ï¿½ï¿½ ï¿½Õ´ï¿½ ï¿½ß°ï¿½-È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½(È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 		cs.insertClient(cid, null, -1, peopleNum, true);
 
-		// Å¥µî·Ï
-		// ÇöÀç Å¥¿¡ turnÀÌ ¸î¹øÂ°±îÁö ÀÖ´ÂÁö turnÀÇ ÃÖ´ë°ª ±¸ÇÏ±â -> ¸î¸íÀÎÁö ±¸ÇØ¼­ +1ÇÔ
-		// max(turn)+1 ÇÑ °ª ÀÔ·Â
+		// Å¥ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ turnï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ turnï¿½ï¿½ ï¿½Ö´ë°ª ï¿½ï¿½ï¿½Ï±ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ +1ï¿½ï¿½
+		// max(turn)+1 ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½
 		int turn = qs.countQueue(sid) + 1;
 		String name=cs.getClient(cid).getName();
 		qs.insertQueue(sid, cid, turn);
@@ -54,15 +55,15 @@ public class StoreService {
 		return returnValue;
 	}
 
-	public String addQueue(String sid, String name, int phone, int peopleNum) { // ´ë±â¿­¿¡ ¼Õ´Ô Ãß°¡-ºñÈ¸¿øÀü¿ë
-		// Å¬¶óÀÌ¾ðÆ®°¡ ¾øÀ» °æ¿ì Å¬¶óÀÌ¾ðÆ® µî·Ï(È¸¿ø Àü¿ë)
-		// ºñÈ¸¿øÀÏ °æ¿ì n0000À¸·Î ¾ÆÀÌµð »ý¼ºÇÏ°Ô ÇÏ´Â °Í Ãß°¡
+	public String addQueue(String sid, String name, int phone, int peopleNum) { // ï¿½ï¿½â¿­ï¿½ï¿½ ï¿½Õ´ï¿½ ï¿½ß°ï¿½-ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½(È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+		// ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ n0000ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½
 		String cid = "n" + String.format("%04d", cs.countNonMemverClient()+1);
 		cs.insertClient(cid, name, phone, peopleNum, false);
 
-		// Å¥µî·Ï
-		// ÇöÀç Å¥¿¡ turnÀÌ ¸î¹øÂ°±îÁö ÀÖ´ÂÁö turnÀÇ ÃÖ´ë°ª ±¸ÇÏ±â -> ¸î¸íÀÎÁö ±¸ÇØ¼­ +1ÇÔ
-		// max(turn)+1 ÇÑ °ª ÀÔ·Â
+		// Å¥ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ turnï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ turnï¿½ï¿½ ï¿½Ö´ë°ª ï¿½ï¿½ï¿½Ï±ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ +1ï¿½ï¿½
+		// max(turn)+1 ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½
 		int turn = qs.countQueue(sid) + 1;
 		qs.insertQueue(sid, cid, turn);
 		String returnValue="INSQUE;NONMEM;"+turn;
@@ -70,14 +71,18 @@ public class StoreService {
 		return returnValue;
 	}
 
-	public List<QueueInfoVo> getStoreQueueList(String sid) {
+	public QueueListSerializable getStoreQueueList(String sid) {
 		List<QueueInfoVo> qivo = sd.getClientListFromQueue(sid);
-		System.out.println("::::::::" + qivo.toString());
-		return qivo;
+		int autonum=sd.getAutonum(sid);
+		QueueListSerializable qls=new QueueListSerializable();
+		qls.autonum=autonum;
+		qls.qivo=qivo;
+		System.out.println("::::::::" + qls.toString());
+		return qls;
 	}
 	
-	public String loadStoreHome(String id) { //MAIN;STORE;°¡°ÔÀÌ¸§;ÇöÀç°¡°Ô´ë±âÀÎ¿ø;´ÙÀ½¼Õ´ÔÀÌ¸§;´ÙÀ½¼Õ´ÔÀÎ¿ø¼ö
-		//°¡°ÔÀÌ¸§(store);ÇöÀç°¡°Ô´ë±âÀÎ¿ø(queue);´ÙÀ½¼Õ´ÔÀÌ¸§(queue.cid->client);´ÙÀ½¼Õ´ÔÀÎ¿ø¼ö(queue.cid->client)
+	public String loadStoreHome(String id) { //MAIN;STORE;ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½;ï¿½ï¿½ï¿½ç°¡ï¿½Ô´ï¿½ï¿½ï¿½Î¿ï¿½;ï¿½ï¿½ï¿½ï¿½ï¿½Õ´ï¿½ï¿½Ì¸ï¿½;ï¿½ï¿½ï¿½ï¿½ï¿½Õ´ï¿½ï¿½Î¿ï¿½ï¿½ï¿½
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½(store);ï¿½ï¿½ï¿½ç°¡ï¿½Ô´ï¿½ï¿½ï¿½Î¿ï¿½(queue);ï¿½ï¿½ï¿½ï¿½ï¿½Õ´ï¿½ï¿½Ì¸ï¿½(queue.cid->client);ï¿½ï¿½ï¿½ï¿½ï¿½Õ´ï¿½ï¿½Î¿ï¿½ï¿½ï¿½(queue.cid->client)
 		StoreHomeVo shvo=sd.storeHomeInfo(id);
 		System.out.println(":::::::::::"+shvo.toString());
 		String returnValue="MAIN;STORE;"+shvo.getSname()+";"+shvo.getAllNum()+";"+shvo.getCname()+";"+shvo.getPeopleNum();

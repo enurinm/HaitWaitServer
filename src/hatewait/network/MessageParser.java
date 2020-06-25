@@ -4,6 +4,7 @@ import hatewait.service.ClientService;
 import hatewait.service.MemberService;
 import hatewait.service.QueueService;
 import hatewait.service.StoreService;
+import hatewait.vo.QueueListSerializable;
 
 public class MessageParser {
 	ClientService cs;
@@ -18,7 +19,7 @@ public class MessageParser {
 		qs = new QueueService();
 	}
 
-	public String parseCategory(String m) {
+	public String parseMessage(String m) {
 		String returnString = "";
 		String[] message;
 		message = m.split(";");
@@ -33,7 +34,7 @@ public class MessageParser {
 			returnString = insque(message);
 
 		} else if (message[0].equals("STRQUE")) {
-			returnString = strque(message);
+			returnString = "SERIALIZE";
 
 		} else if (message[0].equals("MAIN")) {
 			returnString = main(message);
@@ -83,10 +84,9 @@ public class MessageParser {
 		return returnString;
 	}
 
-	String strque(String[] message) {
-		String returnString = "";
-		ss.getStoreQueueList(message[1]);
-		return returnString;
+	public QueueListSerializable strque(String[] message) {
+		QueueListSerializable returnObject = ss.getStoreQueueList(message[2]);
+		return returnObject;
 	}
 
 	String main(String[] message) {

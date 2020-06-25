@@ -71,11 +71,10 @@ public class TestMain {
 		
 //		System.out.println("::::::::::::"+mp.parseCategory(m));
 		
+		System.out.println("server start");
 		sok.soketOpen();
-		String msg=sok.soketRead();
-		System.out.println("read:::::"+msg);
-		sok.soketClose();
 		
+//		ss.getStoreQueueList("s0000");
 	}
 
 }

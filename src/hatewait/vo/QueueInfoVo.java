@@ -1,6 +1,8 @@
 package hatewait.vo;
 
-public class QueueInfoVo {
+import java.io.Serializable;
+
+public class QueueInfoVo implements Serializable{
 	String id;
 	int phone;
 	String name;

@@ -1,6 +1,7 @@
 package hatewait.data;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import hatewait.util.MakeCommandUtil;
@@ -22,17 +23,17 @@ public class StoreDao {
 		settingVoUtil = new SettingVoUtil();
 	}
 
-	// °¡°Ô Á¤º¸ µî·Ï
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public void insertStore(StoreVo svo) {
-		// dbCommand ¼öÁ¤
+		// dbCommand ï¿½ï¿½ï¿½ï¿½
 		dbCommand = "INSERT INTO store (" + svo.column() + ") VALUES (" + svo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// dbÈ£Ãâ
+		// dbÈ£ï¿½ï¿½
 		db.insert(dbCommand);
 		return;
 	}
 
-	// °¡°Ô Á¤º¸ ¼öÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void modifyStore(StoreVo svo) {
 		String set = "";
 		set = makeCommandUtil.setStoreString(svo, set);
@@ -42,7 +43,7 @@ public class StoreDao {
 		return;
 	}
 
-	// °¡°Ô id·Î ´ë±â¿­ ÀüÃ¼ Á¶È¸ > list
+	// ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½â¿­ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸ > list
 	public List<QueueInfoVo> getClientListFromQueue(String sid) {
 		dbCommand = "SELECT id, phone, name, peopleNum, turn FROM client, queue " 
 				+ "WHERE queue.sid='" + sid	+ "' and queue.cid=client.id;";
@@ -62,6 +63,21 @@ public class StoreDao {
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		shvo=settingVoUtil.setStoreHomeVoAllNum(db.select(dbCommand), shvo);
 		return shvo;
+	}
+	
+	public int getAutonum(String id) {
+		int autonum=-1;
+		dbCommand = "SELECT autonum AS autonum FROM store WHERE id='"+id+"';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		ResultSet rs = db.select(dbCommand);
+		try {
+			rs.next();
+			autonum = rs.getInt("autonum");
+		} catch (SQLException e) {
+			System.err.println("hatewait.data.QueueDao::countQueue()");
+			e.printStackTrace();
+		}
+		return autonum;
 	}
 
 }
