@@ -18,17 +18,13 @@ public class MemberDao {
 		settingVoUtil = new SettingVoUtil();
 	}
 
-	// 회원 등록
 	public void insertMember(MemberVo mvo) {
-		// dbCommand 수정
 		dbCommand = "INSERT INTO member (" + mvo.column() + ") VALUES (" + mvo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// db호출
 		db.insert(dbCommand);
 		return;
 	}
 	
-	//회원 수정
 	public void modifyMember(MemberVo mvo) {
 		String set = "";
 		set = makeCommandUtil.setMemberString(mvo, set);

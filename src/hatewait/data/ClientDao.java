@@ -20,19 +20,13 @@ public class ClientDao {
 		makeCommandUtil = new MakeCommandUtil();
 	}
 
-	// client ���
 	public void insertClient(ClientVo cvo) {
-		// dbCommand ����
 		dbCommand = "INSERT INTO client (" + cvo.column() + ") VALUES (" + cvo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// dbȣ��
 		db.insert(dbCommand);
 		return;
 	}
 
-	/*
-	 * client ��ȸ -���� //select
-	 */
 	public ClientVo getClient(String id) {
 		dbCommand = "SELECT * FROM client WHERE id='" + id + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
@@ -114,7 +108,6 @@ public class ClientDao {
 	}
 
 	public void deleteClient(String id) {
-		// dbCommand ����
 		dbCommand = "DELETE FROM client WHERE id='" + id + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.delete(dbCommand);

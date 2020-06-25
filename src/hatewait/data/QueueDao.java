@@ -17,27 +17,20 @@ public class QueueDao {
 		settingVoUtil = new SettingVoUtil();
 	}
 
-	// ��⿭ ���
 	public void insertQueue(QueueVo qvo) {
-		// dbCommand ����
 		dbCommand = "INSERT INTO queue (" + qvo.column() + ") VALUES (" + qvo.value() + ");";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		// dbȣ��
 		db.insert(dbCommand);
 		return;
 	}
 
-	// ��⿭ ����
 	public void deleteQueue(QueueVo qvo) {
-		// dbCommand ����
 		dbCommand = "DELETE FROM queue WHERE cid='" + qvo.getCid() + "' AND sid='" + qvo.getSid() + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		db.delete(dbCommand);
 		return;
 	}
 
-	// ��⿭ ��ȸ �Լ���
-	// Ŭ���̾�Ʈ id�� ��⿭ ��ȸ
 	public QueueVo getQueue(String cid) {
 		dbCommand = "SELECT * FROM queue WHERE cid='" + cid + "';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
@@ -45,7 +38,6 @@ public class QueueDao {
 		return qvo;
 	}
 
-	// ���� id�� ��⿭ �� ���� > count
 	public int countQueue(String sid) {
 		int count = 0;
 		dbCommand = "SELECT COUNT(*) as count FROM queue WHERE sid='" + sid + "';";

@@ -50,6 +50,8 @@ public class SoketThread extends Thread {
 					pw.flush();
 				}
 			} // end while
+			
+			oos.close();
 			pw.close();
 			br.close();
 			socket.close();

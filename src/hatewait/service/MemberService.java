@@ -34,9 +34,7 @@ public class MemberService {
 		return;
 	}
 	
-	public String loadMemberHome(String id) { //MAIN;MEMBER;이름;대기중인 가게이름;내순서
-//		String home="";
-		//이름(memeber);대기중인 가게이름(queue.sid->store);내순서(queue)
+	public String loadMemberHome(String id) {
 		MemberHomeVo mhvo=md.memberHomeInfo(id);
 		System.out.println("::::::::::::"+mhvo.toString());
 		String returnValue="MAIN;MEMBER;"+mhvo.getMname()+";"+mhvo.getSname()+";"+mhvo.getTurn();

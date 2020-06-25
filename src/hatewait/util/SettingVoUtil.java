@@ -54,7 +54,6 @@ public class SettingVoUtil {
 
 	public QueueVo setQueueVo(String sid, String cid, int turn) {
 		QueueVo qvo = new QueueVo();
-		// sid, cid�� �����ϴ��� Ȯ���ϰ� ������ ���� ����ϴ� �ڵ� �߰�
 		qvo.setCid(cid);
 		qvo.setSid(sid);
 		qvo.setTurn(turn);

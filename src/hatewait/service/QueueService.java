@@ -27,13 +27,13 @@ public class QueueService {
 	public void deleteQueue(String sid, String cid) {
 		QueueVo qvo = settingVoUtil.setQueueVo(sid, cid, -1);
 		System.out.println("QueueVo:::::::::::" + qvo.toString());
-		//turn 수정
+		// update turn
 		int turn=qd.getQueue(cid).getTurn();
 		qd.updateTurn(turn, sid);
 		qd.deleteQueue(qvo);
-		if(cd.isClientMember(cid)) {//회원일 경우 client.peoplenum 수정,
+		if(cd.isClientMember(cid)) { // if member, modify peoplenum
 			cd.modifyClientPeopleNum(cid, -1);
-		}else { //비회원일 경우 client에서 삭제 코드 추가
+		}else { // if non-member, delete from client
 			cd.deleteClient(cid);
 		}
 		return;
@@ -44,12 +44,6 @@ public class QueueService {
 		turn=qd.getQueue(cid).getTurn();
 		return turn;
 	}
-	
-//	int getClientTurn(String cid) {
-//		int turn=0;
-//		turn=qd.getQueue(cid).getTurn();
-//		return turn;
-//	}
 	
 	public int countQueue(String sid) {
 		int count=qd.countQueue(sid);

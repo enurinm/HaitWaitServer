@@ -16,11 +16,11 @@ public class ClientService {
 	public void insertClient(String id, String name, int phone, int peopleNum, boolean isMember) {
 		ClientVo cvo = settingVoUtil.setClientVo(id, phone, name, peopleNum, isMember);
 		System.out.println("ClientVo::::::::::::::" + cvo.toString());
-		if (cd.isExistClient(id)) { // 만약 해당 id의 클라이언트가 있을 경우 peoplenum확인
-			if (peopleNum > 0) { // peoplenum>0일 경우 그것만 업데이트
+		if (cd.isExistClient(id)) { // if client exist, check peoplenum
+			if (peopleNum > 0) { // if peoplenum > 0, only change that 
 				cd.modifyClientPeopleNum(cvo);
 			} else {}
-		} else { // 해당 id의 클라이언트가 없을 경우 insert
+		} else { // if client not exist, insert
 			cd.insertClient(cvo);
 		}
 		return;
