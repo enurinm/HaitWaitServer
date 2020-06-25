@@ -59,7 +59,7 @@ public class StoreService {
 		// add to queue - for non-member
 		// add to client
 		// if non-member, make id (n0000)
-		String cid = "n" + String.format("%04d", cs.countNonMemverClient()+1);
+		String cid = "n" + String.format("%08d", cs.countClient()+1);
 		cs.insertClient(cid, name, phone, peopleNum, false);
 
 		// add to queue

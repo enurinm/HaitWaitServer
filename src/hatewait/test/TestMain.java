@@ -37,7 +37,7 @@ public class TestMain {
 		
 //		ss.addQueue("s0000", "�Ż��Ӵ�", 1011111111, 9);
 //		ss.addQueue("s0000", "m0000", 20);
-//		ss.addQueue("s0000", "��Ȳ", 1022222222, 1);
+//		ss.addQueue("s0000", "안주석", 1017343831, 1);
 		
 //		ss.getStoreQueueList("s0000");
 		

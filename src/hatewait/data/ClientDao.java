@@ -35,9 +35,9 @@ public class ClientDao {
 		return cvo;
 	}
 
-	public int countNonMemverClient() {
+	public int countClient() {
 		int count = 0;
-		dbCommand = "SELECT COUNT(*) as count FROM client WHERE isMember=false;";
+		dbCommand = "SELECT COUNT(*) as count FROM client";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		ResultSet rs = db.select(dbCommand);
 		try {

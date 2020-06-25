@@ -31,8 +31,8 @@ public class ClientService {
 		return cvo;
 	}
 
-	public int countNonMemverClient() {
-		return cd.countNonMemverClient();
+	public int countClient() {
+		return cd.countClient();
 	}
 	
 	public void modifyClient(String id, String name, int phone, int peopleNum, boolean isMember) {
