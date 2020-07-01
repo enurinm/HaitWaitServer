@@ -111,7 +111,7 @@ public class MessageParser {
 		String returnString = "";
 		PushMsgVo pmvo=ss.pushMsg(message[1]);
 		returnString="PUSHMSG;0"+pmvo.getPhone()+";"+pmvo.getName()+";"+pmvo.getTurn();
-//		pm.getRequest("0"+pmvo.getPhone(), pmvo.getName(), pmvo.getTurn());
+		pm.getRequest("0"+pmvo.getPhone(), pmvo.getName(), pmvo.getTurn());
 		//pm.getRequest("01093097866", "건국대학교 학식", 3);
 		return returnString;
 	}
