@@ -1,6 +1,7 @@
 package hatewait.service;
 
 import java.util.List;
+import java.util.Random;
 
 import hatewait.data.StoreDao;
 import hatewait.util.SettingVoUtil;
@@ -60,7 +61,7 @@ public class StoreService {
 		// add to queue - for non-member
 		// add to client
 		// if non-member, make id (n0000)
-		String cid = "n" + String.format("%08d", cs.countClient()+1);
+		String cid = "non" + nonMemberId(12);
 		cs.insertClient(cid, name, phone, peopleNum, false);
 
 		// add to queue
@@ -70,6 +71,29 @@ public class StoreService {
 		String returnValue="INSQUE;NONMEM;"+turn;
 		System.out.println("::::::::::"+returnValue);
 		return returnValue;
+	}
+	
+	String nonMemberId(int n) {
+		StringBuffer temp = new StringBuffer();
+		Random rnd = new Random();
+		for (int i = 0; i < n; i++) {
+		    int rIndex = rnd.nextInt(3);
+		    switch (rIndex) {
+		    case 0:
+		        // a-z
+		        temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+		        break;
+		    case 1:
+		        // A-Z
+		        temp.append((char) ((int) (rnd.nextInt(26)) + 65));
+		        break;
+		    case 2:
+		        // 0-9
+		        temp.append((rnd.nextInt(10)));
+		        break;
+		    }
+		}
+		return temp.toString();
 	}
 
 	public QueueListSerializable getStoreQueueList(String sid) {
