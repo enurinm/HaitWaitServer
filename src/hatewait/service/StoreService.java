@@ -4,6 +4,7 @@ import java.util.List;
 
 import hatewait.data.StoreDao;
 import hatewait.util.SettingVoUtil;
+import hatewait.vo.PushMsgVo;
 import hatewait.vo.QueueInfoVo;
 import hatewait.vo.QueueListSerializable;
 import hatewait.vo.StoreHomeVo;
@@ -86,6 +87,12 @@ public class StoreService {
 		System.out.println(":::::::::::"+shvo.toString());
 		String returnValue="MAIN;STORE;"+shvo.getSname()+";"+shvo.getAllNum()+";"+shvo.getCname()+";"+shvo.getPeopleNum();
 		return returnValue;
+	}
+	
+	public PushMsgVo pushMsg(String cid) { //클라이언트 폰번호, 가게이름, 순서
+		PushMsgVo pmvo=sd.pushMsg(cid);
+		System.out.println("::::::::::"+pmvo.toString());
+		return pmvo;
 	}
 
 }

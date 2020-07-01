@@ -40,5 +40,5 @@ public class MemberService {
 		String returnValue="MAIN;MEMBER;"+mhvo.getMname()+";"+mhvo.getSname()+";"+mhvo.getTurn();
 		return returnValue;
 	}
-
+	
 }

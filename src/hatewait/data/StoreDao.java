@@ -6,6 +6,7 @@ import java.util.List;
 
 import hatewait.util.MakeCommandUtil;
 import hatewait.util.SettingVoUtil;
+import hatewait.vo.PushMsgVo;
 import hatewait.vo.QueueInfoVo;
 import hatewait.vo.StoreHomeVo;
 import hatewait.vo.StoreVo;
@@ -73,6 +74,15 @@ public class StoreDao {
 			e.printStackTrace();
 		}
 		return autonum;
+	}
+	
+	public PushMsgVo pushMsg(String cid) {
+		dbCommand="SELECT client.phone, store.name, queue.turn FROM queue, store, client WHERE queue.cid='"+cid
+				+"' AND client.id=queue.cid AND store.id=queue.sid;";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		ResultSet rs = db.select(dbCommand);
+		PushMsgVo pmvo=settingVoUtil.setPushMsgVo(rs);
+		return pmvo;
 	}
 
 }

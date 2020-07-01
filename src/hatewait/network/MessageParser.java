@@ -4,6 +4,7 @@ import hatewait.service.ClientService;
 import hatewait.service.MemberService;
 import hatewait.service.QueueService;
 import hatewait.service.StoreService;
+import hatewait.vo.PushMsgVo;
 import hatewait.vo.QueueListSerializable;
 
 public class MessageParser {
@@ -11,6 +12,7 @@ public class MessageParser {
 	MemberService ms;
 	StoreService ss;
 	QueueService qs;
+	PushMsg pm;
 
 	public MessageParser() {
 		cs = new ClientService();
@@ -42,7 +44,7 @@ public class MessageParser {
 		} else if (message[0].equals("DELQUE")) {
 			returnString = delque(message);
 
-		} else if (message[0].equals("PUSHALARM")) {
+		} else if (message[0].equals("PUSHMSG")) {
 			returnString = pushAlarm(message);
 
 		} else {
@@ -107,6 +109,10 @@ public class MessageParser {
 
 	String pushAlarm(String[] message) {
 		String returnString = "";
+		PushMsgVo pmvo=ss.pushMsg(message[1]);
+		returnString="PUSHMSG;0"+pmvo.getPhone()+";"+pmvo.getName()+";"+pmvo.getTurn();
+//		pm.getRequest("0"+pmvo.getPhone(), pmvo.getName(), pmvo.getTurn());
+		//pm.getRequest("01093097866", "건국대학교 학식", 3);
 		return returnString;
 	}
 }

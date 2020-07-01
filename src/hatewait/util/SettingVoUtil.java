@@ -8,6 +8,7 @@ import java.util.List;
 import hatewait.vo.ClientVo;
 import hatewait.vo.MemberHomeVo;
 import hatewait.vo.MemberVo;
+import hatewait.vo.PushMsgVo;
 import hatewait.vo.QueueInfoVo;
 import hatewait.vo.QueueVo;
 import hatewait.vo.StoreHomeVo;
@@ -165,5 +166,21 @@ public class SettingVoUtil {
 			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
 		}
 		return shvo;
+	}
+	
+	public PushMsgVo setPushMsgVo(ResultSet rs) {
+		PushMsgVo pmvo=new PushMsgVo();
+		try {
+			rs.next();
+			pmvo.setPhone(rs.getInt("phone"));
+			pmvo.setName(rs.getString("name"));
+			pmvo.setTurn(rs.getInt("turn"));
+			if (rs != null)
+				rs.close();
+			else {}
+		} catch (SQLException e) {
+			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+		}
+		return pmvo;
 	}
 }

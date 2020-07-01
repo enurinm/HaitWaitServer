@@ -46,6 +46,7 @@ public class SoketThread extends Thread {
 					oos.writeObject(qls);
 					oos.flush();
 				}else {
+					System.out.println("보내는 문자열::::::::"+answer);
 					pw.println(answer);
 					pw.flush();
 				}
