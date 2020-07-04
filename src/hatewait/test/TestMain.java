@@ -75,6 +75,31 @@ public class TestMain {
 		sok.soketOpen();
 		
 //		ss.getStoreQueueList("s0000");
+		
+//		Random rnd = new Random();
+//		for (int i = 0; i < 10; i++) {
+//		    int rIndex = rnd.nextInt(2);
+//		    String sid;
+//	    	int isid=rnd.nextInt(3);
+//	    	if(isid==0) 
+//	    		sid="s0000";
+//	    	else if(isid==1)
+//	    		sid="s1111";
+//	    	else
+//	    		sid="s2222";
+//	    	StringBuffer temp = new StringBuffer();
+//	    	temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+//	    	ss.addQueue(sid, temp.toString(), rnd.nextInt(999999999), rnd.nextInt(10));
+//		}
+		
+//		Scanner sc = new Scanner(System.in);
+//		String cid="";
+//		for(int i=0;i<20;i++) {
+//			cid=sc.nextLine();
+//			qs.deleteQueue(cid);
+//		}
+		
+//		qs.deleteQueue("s0000", "nonxcl7Jm5xg7KF");
 	}
 
 }
