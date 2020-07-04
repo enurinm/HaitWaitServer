@@ -103,7 +103,11 @@ public class MessageParser {
 
 	String delque(String[] message) {
 		String returnString = "";
-		qs.deleteQueue(message[1], message[2]);
+		if(message[1].equals("STORE")) {
+			qs.deleteQueue(message[2], message[3]);
+		} else if (message[1].equals("MEMBER")) {
+			qs.deleteQueue(message[2]);
+		}
 		return returnString;
 	}
 

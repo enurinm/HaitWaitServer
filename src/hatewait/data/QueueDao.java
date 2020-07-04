@@ -37,6 +37,21 @@ public class QueueDao {
 		QueueVo qvo = settingVoUtil.setQueueVo(db.select(dbCommand));
 		return qvo;
 	}
+	
+//	public String getQueueStore(String cid) {
+//		String sid="";
+//		dbCommand = "SELECT sid FROM queue WHERE cid='"+cid+"';";
+//		System.out.println("dbcommand::::::::::" + dbCommand);
+//		ResultSet rs = db.select(dbCommand);
+//		try {
+//			rs.next();
+//			sid = rs.getString("sid");
+//		} catch (SQLException e) {
+//			System.err.println("hatewait.data.QueueDao::countQueue()");
+//			e.printStackTrace();
+//		}
+//		return sid;
+//	}
 
 	public int countQueue(String sid) {
 		int count = 0;

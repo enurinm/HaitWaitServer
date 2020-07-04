@@ -39,6 +39,26 @@ public class QueueService {
 		return;
 	}
 	
+	public void deleteQueue(String cid) {
+		// update turn
+		QueueVo qvo=qd.getQueue(cid);
+		System.out.println("QueueVo:::::::::::" + qvo.toString());
+		
+		int turn=qvo.getTurn();
+		String sid=qvo.getSid();
+//		QueueVo qvo = settingVoUtil.setQueueVo(sid, cid, -1);
+		qvo.setTurn(-1);
+		
+		qd.updateTurn(turn, sid);
+		qd.deleteQueue(qvo);
+		if(cd.isClientMember(cid)) { // if member, modify peoplenum
+			cd.modifyClientPeopleNum(cid, -1);
+		}else { // if non-member, delete from client
+			cd.deleteClient(cid);
+		}
+		return;
+	}
+	
 	public int getClientTurn(String sid, String cid) {
 		int turn=0;
 		turn=qd.getQueue(cid).getTurn();
