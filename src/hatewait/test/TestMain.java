@@ -71,8 +71,8 @@ public class TestMain {
 		
 //		System.out.println("::::::::::::"+mp.parseCategory(m));
 		
-		System.out.println("server start");
-		sok.soketOpen();
+//		System.out.println("server start");
+//		sok.soketOpen();
 		
 //		ss.getStoreQueueList("s0000");
 		

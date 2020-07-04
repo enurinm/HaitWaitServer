@@ -44,6 +44,13 @@ public class StoreService {
 
 	public String addQueue(String sid, String cid, int peopleNum) {
 		// add to queue - for member
+		// if member, check member exist
+		String returnValue="";
+		if(cs.isExistClient(cid)) {
+			System.err.println("StoreService.addQueue()::::::member not exist err");
+			returnValue="ERROR;NOTEXIST";
+			return returnValue;
+		}
 		// add to client
 		cs.insertClient(cid, null, -1, peopleNum, true);
 
@@ -52,7 +59,7 @@ public class StoreService {
 		int turn = qs.countQueue(sid) + 1;
 		String name=cs.getClient(cid).getName();
 		qs.insertQueue(sid, cid, turn);
-		String returnValue="INSQUE;MEMBER;"+name+";"+turn;
+		returnValue="INSQUE;MEMBER;"+name+";"+turn;
 		System.out.println("::::::::::"+returnValue);
 		return returnValue;
 	}

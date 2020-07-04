@@ -25,6 +25,10 @@ public class ClientService {
 		}
 		return;
 	}
+	
+	public boolean isExistClient(String id) {
+		return cd.isExistClient(id);
+	}
 
 	public ClientVo getClient(String id) {
 		ClientVo cvo = cd.getClient(id);
