@@ -142,7 +142,7 @@ public class SettingVoUtil {
 		StoreHomeVo shvo=new StoreHomeVo();
 		try {
 			rs.next();
-			shvo.setSname(rs.getString("sname"));
+//			shvo.setSname(rs.getString("sname"));
 //			shvo.setAllNum(rs.getInt("allnum"));
 			shvo.setCname(rs.getString("cname"));
 			shvo.setPeopleNum(rs.getInt("peopleNum"));
@@ -164,6 +164,17 @@ public class SettingVoUtil {
 			else {}
 		} catch (SQLException e) {
 			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+		}
+		return shvo;
+	}
+	
+	public StoreHomeVo setSname(ResultSet rs, StoreHomeVo shvo) {
+		try {
+			rs.next();
+			shvo.setSname(rs.getString("name"));
+		} catch (SQLException e) {
+			System.err.println("hatewait.data.StoreDao::getStoreName()");
+			e.printStackTrace();
 		}
 		return shvo;
 	}

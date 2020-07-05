@@ -50,14 +50,16 @@ public class StoreDao {
 	}
 	
 	public StoreHomeVo storeHomeInfo(String id) {
-		dbCommand = "SELECT store.name AS sname, client.name AS cname, client.peopleNum FROM store, queue, client "
-				+ "WHERE store.id='"+id+"' and queue.sid=store.id and client.id=queue.cid "
-				+ "and queue.turn=(SELECT MIN(turn) FROM queue)";
+		dbCommand = "SELECT client.name AS cname, client.peopleNum FROM store, queue, client "
+				+ "WHERE queue.sid='"+id+"' and client.id=queue.cid and queue.turn=(SELECT MIN(turn) FROM queue)";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		StoreHomeVo shvo= settingVoUtil.setStoreHomeVo(db.select(dbCommand));
 		dbCommand = "select count(*) as allNum from queue where sid='"+id+"';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		shvo=settingVoUtil.setStoreHomeVoAllNum(db.select(dbCommand), shvo);
+		dbCommand = "SELECT name FROM store WHERE id='"+id+"';";
+		System.out.println("dbcommand::::::::::" + dbCommand);
+		shvo=settingVoUtil.setSname(db.select(dbCommand), shvo);
 		return shvo;
 	}
 	
@@ -70,7 +72,7 @@ public class StoreDao {
 			rs.next();
 			autonum = rs.getInt("autonum");
 		} catch (SQLException e) {
-			System.err.println("hatewait.data.QueueDao::countQueue()");
+			System.err.println("hatewait.data.StoreDao::getAutonum()");
 			e.printStackTrace();
 		}
 		return autonum;
