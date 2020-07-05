@@ -35,9 +35,9 @@ public class MemberDao {
 	}
 	
 	public MemberHomeVo memberHomeInfo(String id) {
-		dbCommand = "SELECT member.name AS mname, store.name AS sname, queue.turn "
-				+ "FROM (member, queue, store) "
-				+ "WHERE (queue.cid='"+id+"' AND member.id=queue.cid AND store.id=queue.sid);";
+		dbCommand = "SELECT `member`.name AS mname, store.name AS sname, queue.turn "
+				+ "FROM (`member`, queue, store) "
+				+ "WHERE (queue.cid='"+id+"' AND `member`.id=queue.cid AND store.id=queue.sid);";
 		System.out.println("dbcommand::::::::::" + dbCommand);
 		MemberHomeVo mhvo= settingVoUtil.setMemberHomeVo(db.select(dbCommand));
 		return mhvo;
