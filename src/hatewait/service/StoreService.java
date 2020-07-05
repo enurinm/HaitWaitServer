@@ -46,7 +46,7 @@ public class StoreService {
 		// add to queue - for member
 		// if member, check member exist
 		String returnValue="";
-		if(cs.isExistClient(cid)) {
+		if(!cs.isExistClient(cid)) {
 			System.err.println("StoreService.addQueue()::::::member not exist err");
 			returnValue="ERROR;NOTEXIST";
 			return returnValue;
