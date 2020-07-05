@@ -168,7 +168,7 @@ public class SettingVoUtil {
 		return shvo;
 	}
 	
-	public StoreHomeVo setSname(ResultSet rs, StoreHomeVo shvo) {
+	public StoreHomeVo setStoreHomeVoSname(ResultSet rs, StoreHomeVo shvo) {
 		try {
 			rs.next();
 			shvo.setSname(rs.getString("name"));
