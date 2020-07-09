@@ -59,7 +59,7 @@ public class StoreDao {
 		shvo=settingVoUtil.setStoreHomeVoAllNum(db.select(dbCommand), shvo);
 		dbCommand = "SELECT name FROM store WHERE id='"+id+"';";
 		System.out.println("dbcommand::::::::::" + dbCommand);
-		shvo=settingVoUtil.setSname(db.select(dbCommand), shvo);
+		shvo=settingVoUtil.setStoreHomeVoSname(db.select(dbCommand), shvo);
 		return shvo;
 	}
 	
