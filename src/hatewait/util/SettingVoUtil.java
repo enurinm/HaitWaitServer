@@ -122,7 +122,7 @@ public class SettingVoUtil {
 		return qivo;
 	}
 	
-	public MemberHomeVo setMemberHomeVo(ResultSet rs) {
+	public MemberHomeVo setMemberHomeVo(ResultSet rs) { //old
 		MemberHomeVo mhvo=new MemberHomeVo();
 		try {
 			rs.next();
@@ -137,6 +137,36 @@ public class SettingVoUtil {
 		}
 		return mhvo;
 	}
+	
+//	public MemberHomeVo setMemberHomeVo(ResultSet rs) { //new
+//		MemberHomeVo mhvo=new MemberHomeVo();
+//		try {
+//			rs.next();
+//			mhvo.setMname(rs.getString("mname"));
+//			mhvo.setSname(rs.getString("sname"));
+//			mhvo.setTurn(rs.getInt("turn"));
+//			if (rs != null)
+//				rs.close();
+//			else {}
+//		} catch (SQLException e) {
+//			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+//		}
+//		return mhvo;
+//	}
+//	
+//	public MemberHomeVo setMemberHomeVoMname(ResultSet rs) { //new
+//		MemberHomeVo mhvo=new MemberHomeVo();
+//		try {
+//			rs.next();
+//			mhvo.setMname(rs.getString("name"));
+//			if (rs != null)
+//				rs.close();
+//			else {}
+//		} catch (SQLException e) {
+//			System.err.println("hatewait.util.SettingVoUtil::ResultSet setting error:: " + e);
+//		}
+//		return mhvo;
+//	}
 	
 	public StoreHomeVo setStoreHomeVo(ResultSet rs) {
 		StoreHomeVo shvo=new StoreHomeVo();

@@ -34,7 +34,7 @@ public class MemberDao {
 		return;
 	}
 	
-	public MemberHomeVo memberHomeInfo(String id) {
+	public MemberHomeVo memberHomeInfo(String id) { //old
 		dbCommand = "SELECT `member`.name AS mname, store.name AS sname, queue.turn "
 				+ "FROM (`member`, queue, store) "
 				+ "WHERE (queue.cid='"+id+"' AND `member`.id=queue.cid AND store.id=queue.sid);";
@@ -42,4 +42,18 @@ public class MemberDao {
 		MemberHomeVo mhvo= settingVoUtil.setMemberHomeVo(db.select(dbCommand));
 		return mhvo;
 	}
+	
+//	public MemberHomeVo memberHomeInfo(String id) { //new
+//		dbCommand = "SELECT `member`.name FROM `member` WHERE `member`.id='"+id+"';";
+//		System.out.println("dbcommand::::::::::" + dbCommand);
+//		MemberHomeVo mhvo= settingVoUtil.setMemberHomeVoMname(db.select(dbCommand));
+//		dbCommand = "SELECT `member`.name AS mname, store.name AS sname, queue.turn "
+//				+ "FROM (`member`, queue, store) "
+//				+ "WHERE (queue.cid='"+id+"' AND `member`.id=queue.cid AND store.id=queue.sid);";
+////		dbCommand = "SELECT store.name AS sname, queue.turn FROM (queue, store) "
+////				+ "WHERE (queue.cid='"+id+"' AND store.id=queue.sid);";
+//		System.out.println("dbcommand::::::::::" + dbCommand);
+//		 mhvo= settingVoUtil.setMemberHomeVo(db.select(dbCommand));
+//		return mhvo;
+//	}
 }
